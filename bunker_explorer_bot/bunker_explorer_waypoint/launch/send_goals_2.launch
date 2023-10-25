@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="bunker_explorer_waypoint" type="rev1_send_goals.py" name="send_goals" output="screen"/>
+
+</launch>

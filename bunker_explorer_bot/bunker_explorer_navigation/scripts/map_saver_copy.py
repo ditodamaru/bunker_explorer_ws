@@ -1,0 +1,45 @@
+import os
+import rospkg
+import xml.etree.ElementTree as ET
+
+def find_rtabmap_databases(directory):
+    database_files = []
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.db'):
+                database_files.append(os.path.join(root, file))
+    return database_files
+
+def update_launch_file(launch_file_path, map_filename):
+    tree = ET.parse(launch_file_path)
+    root = tree.getroot()
+
+    for node in root.findall(".//node[@name='map_saver_node']"):
+        args = node.get('args')
+        new_args = args.replace('my_map', map_filename)
+        node.set('args', new_args)
+
+    tree.write(launch_file_path)
+
+if __name__ == '__main__':
+    # Search for RTAB-Map databases in ~/.ros/
+    home_dir = os.path.expanduser('~')
+    ros_dir = os.path.join(home_dir, '.ros')
+    rtabmap_databases = find_rtabmap_databases(ros_dir)
+
+    if len(rtabmap_databases) == 0:
+        print("No RTAB-Map databases found.")
+    else:
+        print("Found RTAB-Map databases:")
+        for idx, db_path in enumerate(rtabmap_databases):
+            print(f"{idx + 1}. {db_path}")
+
+        selected_idx = int(input("Select a database (enter the index): ")) - 1
+        selected_db = rtabmap_databases[selected_idx]
+        map_filename = os.path.splitext(os.path.basename(selected_db))[0]
+
+        # Update the launch file
+        package_path = rospkg.RosPack().get_path('bunker_explorer_navigation')
+        launch_file_path = os.path.join(package_path, 'launch', 'map_saver_check.launch')
+        update_launch_file(launch_file_path, map_filename)
+        print(f"Launch file updated with map filename: {map_filename}")

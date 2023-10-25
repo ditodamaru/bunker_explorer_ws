@@ -1,0 +1,7 @@
+<launch>
+    <!-- Define a parameter to store the map name -->
+    <arg name="map_name" default="trial" />
+
+    <node args="-f $(find bunker_explorer_navigation)/maps/$(arg map_name)" name="map_saver_node" output="screen" pkg="map_server" type="map_saver" />
+    
+</launch>

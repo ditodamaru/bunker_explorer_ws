@@ -1,0 +1,3 @@
+<launch>
+    <node name="urdf_generator" pkg="bunker_explorer_description" type="generate_urdf.py" output="screen" />
+</launch>

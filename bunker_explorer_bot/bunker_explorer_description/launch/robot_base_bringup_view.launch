@@ -1,0 +1,17 @@
+<!-- robot_description.launch -->
+<launch>
+    
+    <arg name="visualize" default="true" />
+
+    <arg name="rvizconfig" default="$(find bunker_explorer_description)/rviz/bunker_mapping.rviz" />
+
+
+    <!-- Load the URDF file -->
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find bunker_explorer_description)/urdf/REV3_bunker_realsense.urdf.xacro" />
+    
+    <!-- Start robot_state_publisher -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>

@@ -1,0 +1,19 @@
+#obstacle_range: 0.15 #original
+obstacle_range: 2 #5.5
+
+#raytrace_range: 3.0 #ori
+#raytrace_range: 6.0
+raytrace_range: 0.8
+
+footprint: [[0.15, 0.12], [0.15, -0.12],[-0.15, 0.12], [-0.15, -0.12]] #original
+#footprint: [[-0.5, -0.33], [-0.5, 0.33], [0.5, 0.33], [0.5, -0.33]] #based on husky
+#robot_radius: ir_of_robot
+#inflation_radius: 0.55 # original
+inflation_radius: 0.2 #1.0
+
+map_topic: /rtabmap/grid_map
+subscribe_to_updates: true
+
+observation_sources: point_cloud_sensor
+
+point_cloud_sensor: {sensor_frame: camera_link, data_type: PointCloud2, topic: /point_cloud_data, marking: true, clearing: true}

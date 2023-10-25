@@ -1,0 +1,3 @@
+<launch>
+    <node name="bunker3_map_chooser" pkg="bunker_explorer_navigation" type="bunker3_map_chooser.py" output="screen"/>
+</launch>

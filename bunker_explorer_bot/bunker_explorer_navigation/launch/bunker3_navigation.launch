@@ -1,0 +1,25 @@
+<launch>
+  
+  
+  <arg default="$(find bunker_explorer_waypoint)/maps/083123_1631.yaml" name="map_file" />
+  <arg default="true" name="open_rviz" />
+  <arg default="false" name="move_forward_only" />
+
+  
+  
+
+  
+  <node args="$(arg map_file)" name="map_server" pkg="map_server" type="map_server" />
+
+  
+  <include file="$(find bunker_explorer_navigation)/launch/amcl.launch" />
+
+  
+  <include file="$(find bunker_explorer_navigation)/launch/move_base_dwa.launch">
+    
+    <arg name="move_forward_only" value="$(arg move_forward_only)" />
+  </include>
+
+  
+  
+</launch>

@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="frame_stand">
+
+  <!-- 
+  <xacro:arg name="use_nominal_extrinsics" default="false"/>
+  <xacro:arg name="add_plug" default="false" />
+  <xacro:arg name="use_mesh" default="true" />
+  <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+  
+  <link name="base_link" />
+  <xacro:sensor_d435 parent="base_link" use_nominal_extrinsics="true" add_plug="false" use_mesh="true">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:sensor_d435> -->
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+
+  <link name="pillar_left">
+    <visual>
+      <geometry>
+        <box size="0.04 0.04 0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.3 0.08"/>
+       <material name="blue"/>
+    </visual>
+  </link>
+    
+  <link name="pillar_right">
+    <visual>
+      <geometry>
+        <box size="0.04 0.04 0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <material name="red"/>
+    </visual>
+  </link>
+
+
+  <link name="pillar_top">
+    <visual>
+      <geometry>
+        <box size="0.04 0.35 0.04"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.15 0.16"/>
+       <material name="red"/>
+    </visual>
+  </link>  
+  
+  <!--
+  <link name="servo_bottom">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.015"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <link name="U_Link">
+    <visual>
+      <geometry>
+        <box size="0.015 0.03 0.064"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <link name="servo_mid">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.015"/>
+      </geometry>
+      <origin rpy="1.57 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <link name="servo_up">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.015"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <link name="up_mount">
+    <visual>
+      <geometry>
+        <box size="0.05 0.148 0.05"/>
+      </geometry>
+      <origin rpy="0 0.785 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link> -->
+
+  <joint name="pillar_left_to_pillar_top" type="fixed">
+    <parent link="pillar_left"/>
+    <child link="pillar_top"/>
+    <origin xyz="0 0 0.04"/>
+  </joint>
+
+  <joint name="pillar_top_to_pillar_right" type="fixed">
+    <parent link="pillar_top"/>
+    <child link="pillar_right"/>
+    <origin xyz="0 0 0.04"/>
+  </joint>
+
+
+  
+</robot>

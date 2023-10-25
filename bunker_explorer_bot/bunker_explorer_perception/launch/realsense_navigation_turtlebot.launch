@@ -1,0 +1,63 @@
+<launch>
+
+    <!-- rtabmap arguments-->
+    <arg name="localization" default="false"/>
+    <arg name="rtabmap_args" value="--delete_db_on_start"/>
+
+    <!-- original code deactivate -->
+    <!-- 
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
+        <arg name="filters" value="pointcloud"/>
+        <! <arg name="initial_reset" value="true"/>
+        <arg name="align_depth" value="true"/>
+        <arg name="unite_imu_method" value="linear_interpolation"/>
+        <arg name="enable_gyro" value="true"/>
+        <arg name="enable_accel" value="true"/>
+
+        <arg name="depth_width" value="640"/>
+        <arg name="depth_height" value="480"/>
+        <arg name="depth_fps" value="30"/>
+        <arg name="color_width" value="640"/>
+        <arg name="color_height" value="480"/>
+        <arg name="color_fps" value="30"/>
+
+
+    </include> 
+    original codedeactivate ends -->
+
+    <node name="imu_filter_madgwick" pkg="imu_filter_madgwick" type="imu_filter_node" args="_use_mag:=false _publish_tf:=false _world_frame=world /imu/data_raw:=/camera/imu /imu/data:=/rtabmap/imu"/>
+
+    <include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+        <!-- ORIGINAL code 
+        <arg name="localization" value="false"/>
+        <arg name="rtabmap_args" value="delete_db_on_start Optimizer/GravitySigma 0.3"/>
+        original code end -->
+
+        <!-- new added code -->
+        <arg name="localization" value="$(arg localization)"/>
+        <arg name="rtabmap_args" value="$(arg rtabmap_args)"/>
+        <!-- new added code end -->
+
+        <arg name="depth_topic" value="/camera/aligned_depth_to_color/image_raw"/>
+        <arg name="rgb_topic" value="/camera/color/image_raw"/>
+        <arg name="camera_info_topic" value="/camera/color/camera_info"/>
+
+        <arg name="approx_sync" value="true"/>
+        <!-- need to check 1-->
+        <arg name="frame_id" value="base_footprint"/>
+        <!-- need to check 2-->
+        <arg name="odom_frame_id"           default="odom"/>                <!-- If set, TF is used to get odometry instead of the topic -->
+        <arg name="map_frame_id"            default="map"/>
+
+        <!-- new added scripts -->
+        <arg name="rtabmapviz"              default="false" /> 
+        <arg name="rviz"                    default="false" />
+
+        <arg name="visual_odometry"          default="false"/>
+        <!-- new added script ends -->
+
+
+        <!-- <arg name="database_path" value="$(find rtabmap_ros)/maps/rtabmap.db"/> -->
+    </include>
+
+</launch>

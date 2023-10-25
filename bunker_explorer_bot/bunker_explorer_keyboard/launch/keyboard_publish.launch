@@ -1,0 +1,9 @@
+<launch>
+    <!-- Set the default filename parameter -->
+    <!-- <arg name="filename" default="data.txt" /> -->
+
+    <!-- Launch the rev1_poseSaveSubs.py script -->
+    <node name="keyboard_input_node" pkg="bunker_explorer_keyboard" type="rev2_keyboard_publisher.py" output="screen">
+        
+    </node>
+</launch>

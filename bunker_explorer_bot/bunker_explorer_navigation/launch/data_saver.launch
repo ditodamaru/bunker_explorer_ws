@@ -1,0 +1,9 @@
+<launch>
+    <!-- Set the default filename parameter -->
+    <arg name="filename" default="data.txt" />
+
+    <!-- Launch the rev1_poseSaveSubs.py script -->
+    <node name="data_saver_node" pkg="bunker_explorer_navigation" type="rev3_poseSaveSubs.py" output="screen">
+        <param name="filename" value="$(arg filename)" />
+    </node>
+</launch>

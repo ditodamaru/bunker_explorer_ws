@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Set parameter value based on file path -->
+  <param name="bunker_explorer_waypoint" type="string" value="$(find bunker_explorer_waypoint)/waypoint_files" />
+
+  <!-- Run the script -->
+  <node name="collect_2dnav_goal" pkg="bunker_explorer_waypoint" type="collect_2dnav_goal.py" output="screen" />
+
+  <!-- Run localization publisher-->
+      <!-- Run the localization_data_pub node -->
+  <node name="localization_publisher" pkg="localization_data_pub" type="rviz_click_to_2d" output="screen" />
+
+</launch>

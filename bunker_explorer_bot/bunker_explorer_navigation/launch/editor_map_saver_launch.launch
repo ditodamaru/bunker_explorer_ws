@@ -1,0 +1,3 @@
+<launch>
+    <node name="editor_map_saver_launch" pkg="bunker_explorer_navigation" type="editor_map_saver_launch.py" output="screen"/>
+</launch>

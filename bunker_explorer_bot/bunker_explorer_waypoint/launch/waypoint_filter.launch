@@ -1,0 +1,6 @@
+<launch>
+    <!-- Declare the Python script as a ROS node -->
+    <node name="waypoint_filter_node" pkg="bunker_explorer_waypoint" type="waypoint_filter.py" output="screen">
+        <!-- Add any necessary remapping or parameters here -->
+    </node>
+</launch>

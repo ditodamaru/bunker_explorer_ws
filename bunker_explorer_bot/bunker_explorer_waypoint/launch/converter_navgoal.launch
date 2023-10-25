@@ -1,0 +1,6 @@
+<launch>
+    <!-- Declare the Python script as a ROS node -->
+    <node name="converter_navgoal_node" pkg="bunker_explorer_waypoint" type="converter_navgoal.py" output="screen">
+        <!-- Add any necessary remapping or parameters here -->
+    </node>
+</launch>

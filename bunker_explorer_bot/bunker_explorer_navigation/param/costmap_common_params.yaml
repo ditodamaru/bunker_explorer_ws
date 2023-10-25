@@ -1,0 +1,15 @@
+obstacle_range: 0.30
+raytrace_range: 3.5
+
+footprint: [[0.15, 0.12], [0.15, -0.12],[-0.15, 0.12], [-0.15, -0.12]]
+#robot_radius: 0.17
+
+inflation_radius: 1
+cost_scaling_factor: 3.0
+
+map_topic: /rtabmap/grid_map
+subscribe_to_updates: true
+
+map_type: costmap
+observation_sources: point_cloud_sensor
+scan: {sensor_frame: camera_link, data_type: PointCloud2, topic: point_cloud_data, marking: true, clearing: true}

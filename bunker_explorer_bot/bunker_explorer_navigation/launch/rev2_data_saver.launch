@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="collect_button_num" value="s" />
+	<arg name="collect_button_sym" value="s" />
+	<arg name="end_button_num" value="e" />
+	<arg name="end_button_sym" value="e" />
+	<arg name="coordinates_file_dir" value="/waypoint_files/points_outdoor.txt" />
+
+
+    <node name="collect_gps_waypoints" pkg="bunker_explorer_navigation" type="rev4_collect_gps_waypoints.py" output="screen">
+        	<param name="/outdoor_waypoint_nav/coordinates_file" value="$(arg coordinates_file_dir)" type="string" />
+			<param name="/outdoor_waypoint_nav/collect_button_num" value="$(arg collect_button_num)" type="string" />
+			<param name="/outdoor_waypoint_nav/end_button_num" value="$(arg end_button_num)" type="string" />
+			<param name="/outdoor_waypoint_nav/collect_button_sym" value="$(arg collect_button_sym)" type="string" />
+			<param name="/outdoor_waypoint_nav/end_button_sym" value="$(arg end_button_sym)" type="string" />    
+    </node>
+</launch>

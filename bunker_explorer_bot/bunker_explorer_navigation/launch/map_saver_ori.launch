@@ -1,0 +1,12 @@
+<launch>
+    <!-- Declare the parameter to accept the map file name -->
+    <arg name="map_name" default="map_ind" />
+    
+    <!-- Start the map_server node -->
+    <node name="map_saver_node" pkg="map_server" type="map_saver" output="screen">
+        <!-- Set the output file path using the $(find package_name) syntax and the provided parameter -->
+        <param name="map_file_prefix" value="$(find bunker_explorer_navigation)/maps/$(arg map_name)" />
+        <!-- Set the topic to the map data -->
+        <param name="map" value="/rtabmap/proj_map" />
+    </node>
+</launch>

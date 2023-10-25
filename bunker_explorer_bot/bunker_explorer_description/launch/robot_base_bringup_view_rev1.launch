@@ -1,0 +1,22 @@
+
+<launch>
+
+  <arg name="visualize" default="true" />
+  <!-- <arg name="model" default="$(find bunker_explorer_description)/urdf/REV3_bunker_realsense.urdf.xacro"/> -->
+  <arg name="model" default="$(find bunker_explorer_description)/urdf/bunker_explorer_description.urdf.xacro"/>
+  <arg name="rvizconfig" default="$(find bunker_explorer_description)/rviz/bunker_mapping.rviz" />
+
+  
+  <!--<param name="robot_description" textfile="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_description/urdf/rev4_bunker_realsense_imu_to_robot_base.urdf" /> -->
+<!--  <param name="robot_description" textfile="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_description/urdf/REV3_bunker_realsense.urdf" /> -->
+  <param name="robot_description" textfile="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_description/urdf/bunker_explorer_description.urdf" />
+
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" >
+    <rosparam param="source_list">["joint_states_ct"]</rosparam>
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+
+</launch>

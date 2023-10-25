@@ -1,0 +1,17 @@
+global_costmap:
+  global_frame: map
+  #robot_base_frame: base_footprint #original
+  robot_base_frame: robot_base #based on fadzil
+
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  transform_tolerance: 0.5
+
+  static_map: true
+
+#based on Husky
+plugins:
+  - {name: obstacles_laser,           type: "costmap_2d::ObstacleLayer"}
+  - {name: inflation,                 type: "costmap_2d::InflationLayer"}
+  - {name: static_layer,              type: "rtabmap_costmap_plugins::StaticLayer"} #based on rtabmap documentation
+ 

@@ -1,0 +1,6 @@
+
+  <launch>
+
+  <node pkg="bunker_bringup" type="bringup_can2usb.bash" name="bunker_bringup_can" output="screen"/>
+   
+  </launch>

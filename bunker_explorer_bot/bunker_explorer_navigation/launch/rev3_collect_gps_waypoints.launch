@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="collect_button_num" value="s" />
+    <!--<arg name="collect_button_sym" value="YES" /> -->
+    <arg name="end_button_num" value="e" />
+    <!-- <arg name="end_button_sym" value="BACK" /> -->
+    <!-- <arg name="coordinates_file_dir" value="$(find bunker_explorer_navigation)/waypoint_files/points_outdoor.txt" /> -->
+
+    <node name="collect_gps_waypoints" pkg="bunker_explorer_navigation" type="rev4_collect_gps_waypoints.py" output="screen">
+		<!--<param name="/outdoor_waypoint_nav/coordinates_file" value="$(find bunker_explorer_navigation)/waypoint_files/points_outdoor.txt" type="string" /> -->       
+		<!-- <param name="path_files" value="$(find bunker_explorer_navigation)/waypoint_files/points_outdoor.txt" type="string" /> -->
+		<!-- <param name="coordinates_file_dir" value="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_navigation/waypoint_files" type="string" /> -->
+
+		<!-- <param name="/outdoor_waypoint_nav/collect_button_num" value="$(arg collect_button_num)" type="string" />	-->	
+        <!-- <param name="/outdoor_waypoint_nav/end_button_num" value="$(arg end_button_num)" type="string" /> -->
+        <!-- <param name="/outdoor_waypoint_nav/collect_button_sym" value="$(arg collect_button_sym)" type="string" /> -->
+        <!-- <param name="/outdoor_waypoint_nav/end_button_sym" value="$(arg end_button_sym)" type="string" /> -->
+    </node>
+</launch>
