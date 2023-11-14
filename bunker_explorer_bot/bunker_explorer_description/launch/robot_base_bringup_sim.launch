@@ -1,0 +1,57 @@
+<launch>
+
+  <arg name="visualize" default="true" />
+  <!-- <arg name="model" default="$(find bunker_explorer_description)/urdf/REV3_bunker_realsense.urdf.xacro"/> -->
+  <arg name="model" default="$(find bunker_explorer_description)/urdf/bunker_camera_base-footprint.xacro"/> <!-- bunker_realsense.urdf.xacro -->
+  <!-- <arg name="model" default="$(find bunker_explorer_description)/urdf/bunker_explorer_description.urdf.xacro"/> -->
+  <arg name="rvizconfig" default="$(find bunker_explorer_description)/rviz/bunker_mapping.rviz" />
+
+  <!-- sim launch configuration -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="multi_robot_name" default=""/>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro  $(find bunker_explorer_description)/urdf/bunker_camera_base-footprint.xacro" /> 
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+	args="-unpause -urdf -model bunker -param robot_description -x 0.0 -y 0.0 -z 0.0"/> 
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" value="$(arg multi_robot_name)"/>
+  
+  
+  <!-- <param name="robot_description" textfile="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_description/urdf/rev4_bunker_realsense_imu_to_robot_base.urdf" /> -->
+  <!-- <param name="robot_description"  textfile="$(find bunker_explorer_description)/urdf/bunker_explorer_description.urdf" /> -->
+  <!-- <param name="robot_description" textfile="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_description/urdf/REV3_bunker_realsense.urdf" /> -->
+  <!-- <param name="robot_description" textfile="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_description/urdf/bunker_realsense.urdf" /> -->
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
+
+
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" >
+    <rosparam param="source_list">["joint_states_ct"]</rosparam>
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+  <!-- IMU LAUNCH -->
+    <!-- PARAM IMU -->
+    <!--<param name="m_bSingle_TF_option" type="bool" value="false" /> <!-false-> 
+  <node pkg="iahrs_driver" type="iahrs_driver" name="iahrs_driver" output="screen" /> -->
+
+  <!-- GPS LAUNCH AND NTRIP ROS -->
+  <!-- <include file="$(find ntrip_ros)/launch/ntrip_ros.launch">
+  </include> -->
+
+  <!-- CAMERA LAUNCH -->
+  <!-- <include file="$(find bunker_explorer_perception)/launch/start_rs_camera.launch">
+  </include> -->
+
+</launch>
