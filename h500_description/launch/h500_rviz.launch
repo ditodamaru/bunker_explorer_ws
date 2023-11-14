@@ -1,0 +1,27 @@
+<launch>
+
+  <arg name="model" 
+  	   default="$(find h500_description)/h500_sprayer/h500.urdf.xacro"/>
+
+  <arg name="gui" 
+  	   default="true" />
+
+  <arg name="rvizconfig" 
+  	   default="$(find h500_description)/rviz/h500.rviz" />
+
+
+
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <param name="use_gui" value="$(arg gui)"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+  <!-- Show in Rviz -->
+  <node name="rviz" 
+    		pkg="rviz" 
+    		type="rviz" 
+    		args="-d $(arg rvizconfig)" 
+    		required="false" />
+</launch>
