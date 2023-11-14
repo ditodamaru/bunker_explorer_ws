@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Run the localization_data_pub node -->
+    <node name="waypoints_data_handler_node" pkg="waypoints_data_handler" type="rviz_click_to_2d" output="screen" />
+
+</launch>
