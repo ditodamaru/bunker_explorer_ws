@@ -1,0 +1,161 @@
+header:
+  seq: 1
+  stamp:
+    secs: 0
+    nsecs:         0
+  frame_id: 'path_frame'
+poses:
+  -
+    header:
+      seq: 0
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'path_frame'
+    pose:
+      orientation:
+        w: 0.0
+        x: 0.0
+        y: 0.0
+        z: -0.170621097
+      position:
+        x: 3.893510818
+        y: -0.873247564
+        z: 0.0
+  -
+    header:
+      seq: 1
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'path_frame'
+    pose:
+      orientation:
+        w: 0.0
+        x: 0.0
+        y: 0.0
+        z: 1.322407365
+      position:
+        x: 7.335118294
+        y: -1.713389874
+        z: 0.0
+  -
+    header:
+      seq: 2
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'path_frame'
+    pose:
+      orientation:
+        w: 0.0
+        x: 0.0
+        y: 0.0
+        z: 2.90707469
+      position:
+        x: 7.759110451
+        y: 0.99445343
+        z: 0.0
+  -
+    header:
+      seq: 3
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'path_frame'
+    pose:
+      orientation:
+        w: 0.0
+        x: 0.0
+        y: 0.0
+        z: 1.372436047
+      position:
+        x: 2.124392509
+        y: 2.178325415
+        z: 0.0
+  -
+    header:
+      seq: 4
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'path_frame'
+    pose:
+      orientation:
+        w: 0.0
+        x: 0.0
+        y: 0.0
+        z: -0.358839869
+      position:
+        x: 2.975944996
+        y: 4.485884666
+        z: 0.0
+  -
+    header:
+      seq: 5
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'path_frame'
+    pose:
+      orientation:
+        w: 0.0
+        x: 0.0
+        y: 0.0
+        z: 1.304473639
+      position:
+        x: 8.020503998
+        y: 2.7976861
+        z: 0.0
+  -
+    header:
+      seq: 6
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'path_frame'
+    pose:
+      orientation:
+        w: 0.0
+        x: 0.0
+        y: 0.0
+        z: 2.676355124
+      position:
+        x: 8.563409805
+        y: 5.350819111
+        z: 0.0
+  -
+    header:
+      seq: 7
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'path_frame'
+    pose:
+      orientation:
+        w: 0.0
+        x: 0.0
+        y: 0.0
+        z: -2.100690365
+      position:
+        x: 3.677220821
+        y: 7.317171097
+        z: 0.0
+  -
+    header:
+      seq: 8
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'path_frame'
+    pose:
+      orientation:
+        w: 0.0
+        x: 0.0
+        y: 0.0
+        z: -0.262091666
+      position:
+        x: 1.800152779
+        y: -0.19434306
+        z: 0.0
+

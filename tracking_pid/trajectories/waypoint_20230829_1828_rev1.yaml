@@ -1,0 +1,16 @@
+header:
+  frame_id: path_frame
+  seq: 0
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: -1.507045746
+  position:
+    x: 0.895336151
+    y: 3.001294851
+    z: 0.0

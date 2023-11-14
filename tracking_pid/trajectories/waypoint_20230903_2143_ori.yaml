@@ -1,0 +1,153 @@
+header:
+  frame_id: path_frame
+  seq: 0
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: 1.42423737
+  position:
+    x: 0.717316568
+    y: 1.420085907
+    z: 0.0
+-
+header:
+  frame_id: path_frame
+  seq: 1
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: 3.061541557
+  position:
+    x: 1.588661075
+    y: 6.040825844
+    z: 0.0
+-
+header:
+  frame_id: path_frame
+  seq: 2
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: -1.772861362
+  position:
+    x: -0.418805718
+    y: 6.148873329
+    z: 0.0
+-
+header:
+  frame_id: path_frame
+  seq: 3
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: 2.966610909
+  position:
+    x: -1.541113377
+    y: 0.766635895
+    z: 0.0
+-
+header:
+  frame_id: path_frame
+  seq: 4
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: 1.384277225
+  position:
+    x: -3.13027215
+    y: 1.255146503
+    z: 0.0
+-
+header:
+  frame_id: path_frame
+  seq: 5
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: 2.926475763
+  position:
+    x: -2.31858778
+    y: 6.259705544
+    z: 0.0
+-
+header:
+  frame_id: path_frame
+  seq: 6
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: -1.765982985
+  position:
+    x: -4.53465414
+    y: 6.58793211
+    z: 0.0
+-
+header:
+  frame_id: path_frame
+  seq: 7
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: -0.138113633
+  position:
+    x: -5.100891113
+    y: 0.948557854
+    z: 0.0
+-
+header:
+  frame_id: path_frame
+  seq: 8
+  stamp:
+    nsecs: 0
+    secs: 0
+pose:
+  orientation:
+    w: 0.0
+    x: 0.0
+    y: 0.0
+    z: 1.093719721
+  position:
+    x: -0.339566559
+    y: -0.274112701
+    z: 0.0
+-

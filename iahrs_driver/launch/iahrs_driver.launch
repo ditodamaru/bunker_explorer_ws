@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="m_bSingle_TF_option" type="bool" value="false" /> <!--false-->
+  <node pkg="iahrs_driver" type="iahrs_driver" name="iahrs_driver" output="screen" />
+
+  <!-- <node pkg="tf" type="static_transform_publisher" name="gps_broadcaster" args="-0.3 0 0.35 0 0 0 1 robot_base gps 100" /> original-->
+  <node pkg="tf" type="static_transform_publisher" name="iahrs_broadcaster" args="0 0 0.05 0 0 0 1 robot_base imu_link2 500" />
+
+</launch>
