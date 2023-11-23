@@ -12,6 +12,7 @@ package_path = rospack.get_path('bunker_explorer_waypoint')
 
 # Define the directory where waypoint files are located
 waypoint_dir = os.path.join(package_path, 'waypoint_files')
+#waypoint_dir = os.path.join(package_path, 'waypoint_filtered')
 
 # List all files in the waypoint directory
 waypoint_files = os.listdir(waypoint_dir)
@@ -40,25 +41,25 @@ else:
     output_file = "/home/andi/catkin_redevel_ws/src/tracking_pid/trajectories/waypoint_20230829_1828.yaml"
 
     # Define the frame_id without single quotes
-    frame_id = 'map'
+    frame_id = 'path_frame'
 
     # Read the selected input waypoint file
     with open(input_file, 'r') as file:
         lines = file.readlines()
 
-    poses = []
+    waypoints = []
 
     # Process each line in the selected input file
     for seq, line in enumerate(lines):
         values = line.split()
         pose_data = {
             "header": {
-                "seq": seq + 1,  # Incremented seq to start from 1
+                "seq": seq,
                 "stamp": {
                     "secs": 0,
                     "nsecs": 0
                 },
-                "frame_id": frame_id
+                "frame_id": frame_id  # Remove single quotes
             },
             "pose": {
                 "position": {
@@ -74,22 +75,12 @@ else:
                 }
             }
         }
-        poses.append(pose_data)
+        waypoints.append(pose_data)
 
     # Write the YAML data to the output file
-    output_data = {
-        "header": {
-            "seq": 1,
-            "stamp": {
-                "secs": 0,
-                "nsecs": 0
-            },
-            "frame_id": frame_id
-        },
-        "poses": poses
-    }
-
     with open(output_file, 'w') as file:
-        yaml.dump(output_data, file, default_flow_style=False)
+        for waypoint in waypoints:
+            yaml.dump(waypoint, file, default_flow_style=False)
+            file.write('-\n')  # Separate each waypoint with '---'
 
     print("Waypoint data from {} has been converted and saved to {}".format(selected_file, output_file))

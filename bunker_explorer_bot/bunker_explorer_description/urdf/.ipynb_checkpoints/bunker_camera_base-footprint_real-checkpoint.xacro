@@ -3,13 +3,6 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot  name="bunker_realsense_description" xmlns:xacro="http://www.ros.org/wiki/xacro">
-
-  <xacro:property name="r200_cam_rgb_px" value="0.005"/>
-  <xacro:property name="r200_cam_rgb_py" value="0.018"/>
-  <xacro:property name="r200_cam_rgb_pz" value="0.013"/>
-  <xacro:property name="r200_cam_depth_offset" value="0.01"/>
-
-  <xacro:arg name="camera_visual" default="false"/>
  
   <link name="base_footprint"/>
 
@@ -78,8 +71,8 @@
   </joint>
   <joint name="mount_to_camera2" type="fixed">
     <parent link="up_mount2"/>
-    <child link="camera_link"/> <!-- original: base_link -->
-    <origin rpy="0 0 0" xyz="0.03 -0.065 0.00"/>
+    <child link="base_link"/> <!-- original: base_link -->
+    <origin rpy="0 0 0" xyz="0.03 -0.0 0.00"/>
   </joint>
     
 <!-- add frame stand joint gps 19Nov23 -->
@@ -145,7 +138,7 @@
 	<origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
   </joint>
 
-<!--  ======= End of editing on 19 Nov 23 ======== --> 
+<!--  ======= End of gps urdf editing on 19 Nov 23 ======== --> 
       
   <link
     name="robot_base"> <!--original : base_link -->
@@ -1116,116 +1109,146 @@
       velocity="0" />
   </joint>
 
-
-  <!-- add joint frame stand 13 Nov 23-->  
-<!--  <joint name="baseto_framestand" type="fixed">
-    <origin rpy="0 0 0" xyz="0.3 0 0"/>
-    <parent link="robot_base"/>
-    <child link="rbot_base2"/>
-  </joint> -->
-
-<!-- original joint r200 camera to bunker -->
-<!--  <joint name="camera_joint" type="fixed">
-    <origin xyz="0.064 -0.065 0.094" rpy="0 0 0"/>
-    <parent link="robot_base"/> <!-original base link -> 
-    <child link="camera_link"/>
-  </joint> -->
-
+<!-- =======add realsense d435i real camera plugin edited on 19nov23 ========= --> 
+ <material name="aluminum">
+	<color rgba="0.5 0.5 0.5 1"/>
+  </material>
+  <material name="plastic">
+	<color rgba="0.1 0.1 0.1 1"/>
+  </material>
+  <link name="base_link"/>
+  <!-- camera body, with origin at bottom screw mount -->
+  <joint name="camera_joint" type="fixed">
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<parent link="base_link"/>
+	<child link="camera_bottom_screw_frame"/>
+  </joint>
+  <link name="camera_bottom_screw_frame"/>
+  <joint name="camera_link_joint" type="fixed">
+	<origin rpy="0 0 0" xyz="0.0106 0.0175 0.0125"/>
+	<parent link="camera_bottom_screw_frame"/>
+	<child link="camera_link"/>
+  </joint>
   <link name="camera_link">
-    <visual>
-     <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
-      <geometry>
-       <mesh filename="package://bunker_description/meshes/sensors/r200.dae" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0.003 0.065 0.007" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.012 0.132 0.020"/>
-      </geometry>
-    </collision>
-
-    <!-- This inertial field needs doesn't contain reliable data!! -->
-<!--   <inertial>
-      <mass value="0.564" />
-      <origin xyz="0 0 0" />
-      <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-               iyy="0.000498940" iyz="0.0"
-               izz="0.003879257" />
-    </inertial>-->
-  </link>  
-
-  <joint name="camera_rgb_joint" type="fixed">
-    <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py} ${r200_cam_rgb_pz}" rpy="0 0 0"/>
-    <parent link="camera_link"/>
-    <child link="camera_rgb_frame"/>
-  </joint>
-  <link name="camera_rgb_frame"/>
-
-  <joint name="camera_rgb_optical_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_frame"/>
-    <child link="camera_rgb_optical_frame"/>
-  </joint>
-  <link name="camera_rgb_optical_frame"/>
-
+	<visual>
+  	<!-- the mesh origin is at front plate in between the two infrared camera axes -->
+  	<origin rpy="1.57079632679 0 1.57079632679" xyz="0.0043 -0.0175 0"/>
+  	<geometry>
+    	<mesh filename="package://realsense2_description/meshes/d435.dae"/>
+  	</geometry>
+	</visual>
+	<collision>
+  	<origin rpy="0 0 0" xyz="0 -0.0175 0"/>
+  	<geometry>
+    	<box size="0.02505 0.09 0.025"/>
+  	</geometry>
+	</collision>
+	<inertial>
+  	<!-- The following are not reliable values, and should not be used for modeling -->
+  	<mass value="0.072"/>
+  	<origin xyz="0 0 0"/>
+  	<inertia ixx="0.003881243" ixy="0.0" ixz="0.0" iyy="0.000498940" iyz="0.0" izz="0.003879257"/>
+	</inertial>
+  </link>
+  <!-- camera depth joints and links -->
   <joint name="camera_depth_joint" type="fixed">
-    <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py + r200_cam_depth_offset} ${r200_cam_rgb_pz}" rpy="0 0 0"/>
-    <parent link="camera_link"/>
-    <child link="camera_depth_frame"/>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<parent link="camera_link"/>
+	<child link="camera_depth_frame"/>
   </joint>
   <link name="camera_depth_frame"/>
-
   <joint name="camera_depth_optical_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_depth_frame"/>
-    <child link="camera_depth_optical_frame"/>
+	<origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+	<parent link="camera_depth_frame"/>
+	<child link="camera_depth_optical_frame"/>
   </joint>
   <link name="camera_depth_optical_frame"/>
+  <!-- camera left IR joints and links -->
+  <joint name="camera_infra1_joint" type="fixed">
+	<origin rpy="0 0 0" xyz="0 0.0 0"/>
+	<parent link="camera_link"/>
+	<child link="camera_infra1_frame"/>
+  </joint>
+  <link name="camera_infra1_frame"/>
+  <joint name="camera_infra1_optical_joint" type="fixed">
+	<origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+	<parent link="camera_infra1_frame"/>
+	<child link="camera_infra1_optical_frame"/>
+  </joint>
+  <link name="camera_infra1_optical_frame"/>
+  <!-- camera right IR joints and links -->
+  <joint name="camera_infra2_joint" type="fixed">
+	<origin rpy="0 0 0" xyz="0 -0.05 0"/>
+	<parent link="camera_link"/>
+	<child link="camera_infra2_frame"/>
+  </joint>
+  <link name="camera_infra2_frame"/>
+  <joint name="camera_infra2_optical_joint" type="fixed">
+	<origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+	<parent link="camera_infra2_frame"/>
+	<child link="camera_infra2_optical_frame"/>
+  </joint>
+  <link name="camera_infra2_optical_frame"/>
+  <!-- camera color joints and links -->
+  <joint name="camera_color_joint" type="fixed">
+	<origin rpy="0 0 0" xyz="0 0.015 0"/>
+	<parent link="camera_link"/>
+	<child link="camera_color_frame"/>
+  </joint>
+  <link name="camera_color_frame"/>
+  <joint name="camera_color_optical_joint" type="fixed">
+	<origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+	<parent link="camera_color_frame"/>
+	<child link="camera_color_optical_frame"/>
+  </joint>
+  <link name="camera_color_optical_frame"/>
+  <material name="blue">
+	<color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="red">
+	<color rgba="1 0 0 1"/>
+  </material>
+  <material name="white">
+	<color rgba="1 1 1 1"/>
+  </material>
 
-  <!-- from waffle models sdf from pkg=turtlebot3_simulation-->
-  <!-- <link name="image">
-    <inertial>
-      <pose>-0.069 0 0.104 0 0 0</pose>
-      <inertia>
-        <ixx>0.001</ixx>
-        <ixy>0.000</ixy>
-        <ixz>0.000</ixz>
-        <iyy>0.001</iyy>
-        <iyz>0.000</iyz>
-        <izz>0.001</izz>
-      </inertia>
-      <mass>0.035</mass>
-    </inertial>
+<!-- ===== end of editing add camera for real robot 19nov 23 ===========  -->
 
-    <collision name="image_collision">
-      <pose>-0.069 0 0.104 0 0 0</pose>
-      <geometry>
-        <box>
-          <size>0.008 0.130 0.022</size>
-        </box>
-      </geometry>
-    </collision>
+ <!-- ====== add imu link on 19 nov23 ====== -->
+ <link name="imu_link">
+	<visual>
+  	<geometry>
+    	<box size="0.05 0.02 0.02"/>
+  	</geometry>
+  	<material name="red"/>
+	</visual>
+  </link>
+    
+  <joint name="imu_joint" type="fixed">
+	<origin rpy="0 0 0" xyz="-0.025 -0.015 0.005"/>
+	<parent link="camera_link"/>
+	<child link="imu_link"/>
+  </joint>
 
-    <sensor name="intel_realsense_r200" type="camera">
-      <always_on>1</always_on>
-      <visualize>0</visualize>
-      <update_rate>30</update_rate>
-      <pose>0.064 -0.047 0.107 0 0 0</pose>
-      <camera>
-        <horizontal_fov>1.02974</horizontal_fov>
-        <image>
-          <width>1920</width>
-          <height>1080</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.02</near>
-          <far>300</far>
-        </clip>
-      </camera>
-    </sensor>
-  </link> -->
+ <!-- ====== add imu link2 on 19 nov23 ====== -->
+ <link name="imu_link2">
+	<visual>
+  	<geometry>
+    	<box size="0.05 0.026 0.005"/>
+  	</geometry>
+  	<material name="red"/>
+	</visual>
+  </link>
+    
+  <joint name="imu_joint" type="fixed">
+	<origin rpy="0 0 0" xyz="0.0 0.0 0.001"/>
+	<parent link="robot_base"/>
+	<child link="imu_link2"/>
+  </joint>
+
+ <!-- ====== end of editing imu link 1 and 2 on 19 nov23 ====== -->
+
+
 
 
   <!-- /////////////////////////////////   gazebo color   ////////////////////////////////////// -->
@@ -1314,15 +1337,15 @@
     <plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
       <!--<robotNamespace>$(arg robot_namespace)</robotNamespace> -->
       <updateRate>40</updateRate>
-      <bodyName>gps_link</bodyName>
-      <frameId>gps_link</frameId>
+      <bodyName>robot_base</bodyName>
+      <frameId>robot_base</frameId>
       <topicName>ublox_gps/fix</topicName> <!-- original navsat/fix-->
       <velocityTopicName>ublox_gps/vel</velocityTopicName> <!-- original navsat/vel-->
-      <referenceLatitude>37.871112</referenceLatitude>
-      <referenceLongitude>127.746019</referenceLongitude>
+      <referenceLatitude>49.9</referenceLatitude>
+      <referenceLongitude>8.9</referenceLongitude>
       <referenceHeading>0</referenceHeading>
       <referenceAltitude>0</referenceAltitude>
-      <drift>0.001 0.001 0.001</drift> 
+      <drift>0.0001 0.0001 0.0001</drift>
     </plugin>
   </gazebo>
 

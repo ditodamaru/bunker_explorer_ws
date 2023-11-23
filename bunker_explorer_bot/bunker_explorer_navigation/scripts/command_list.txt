@@ -1,0 +1,5 @@
+#column date_added time_added running_date terminal_name command
+1 22/11/2023 17:11:10 22/11/2023 18:10:11 rqtgraph rqt_graph
+2 22/11/2023 17:15:10 22/11/2023 19:20:11 roscore_check roscore
+
+ 

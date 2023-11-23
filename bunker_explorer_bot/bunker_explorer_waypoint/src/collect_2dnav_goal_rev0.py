@@ -9,7 +9,6 @@ from datetime import datetime
 class GoalDataSaver:
     def __init__(self):
         self.extracted_data = []
-        self.last_goal = None
         self.package_path = rospy.get_param('/bunker_explorer_waypoint')
         self.waypoint_file_path = None  # Initialize the file path
         self.create_file_path()  # Create the initial file path
@@ -18,18 +17,18 @@ class GoalDataSaver:
     def goal_callback(self, msg):
         position = msg.pose.position
         orientation = msg.pose.orientation
-        current_goal = (
-            position.x, position.y, position.z,
-            orientation.x, orientation.y, orientation.z, orientation.w
+        self.extracted_data.append(
+            "{:.9f} {:.9f} {:.9f} {:.9f} {:.9f} {:.9f} {:.9f}".format(
+                position.x, position.y, position.z,
+                orientation.x, orientation.y, orientation.z, orientation.w
+            )
         )
 
-        if current_goal != self.last_goal:
-            self.extracted_data.append(
-                "{:.9f} {:.9f} {:.9f} {:.9f} {:.9f} {:.9f} {:.9f}".format(*current_goal)
-            )
+        self.save_data()  # Save the data
+        #self.calculate_waypoint_count()  # Calculate waypoint count after saving
+        self.extracted_data = []  # Clear the data after saving
 
-            self.save_data()  # Save the data
-            self.last_goal = current_goal  # Update the last goal
+
 
     def create_file_path(self):
         current_time = datetime.now()
@@ -43,7 +42,10 @@ class GoalDataSaver:
                 file.write(line + '\n')
         rospy.loginfo("Data appended to '%s'", self.waypoint_file_path)
         self.calculate_waypoint_count()  # Calculate waypoint count based on the existing file
-        self.extracted_data = []  # Clear the data after saving
+
+    # def calculate_waypoint_count(self):
+    #     waypoint_count = len(self.extracted_data)
+    #     rospy.loginfo("Total waypoints collected: %d", waypoint_count)
 
     def calculate_waypoint_count(self):
         waypoint_count = 0

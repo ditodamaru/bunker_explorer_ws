@@ -40,7 +40,7 @@ else:
     output_file = "/home/andi/catkin_redevel_ws/src/tracking_pid/trajectories/waypoint_20230829_1828.yaml"
 
     # Define the frame_id without single quotes
-    frame_id = 'map'
+    frame_id = 'map_frame'
 
     # Read the selected input waypoint file
     with open(input_file, 'r') as file:
@@ -53,7 +53,7 @@ else:
         values = line.split()
         pose_data = {
             "header": {
-                "seq": seq + 1,  # Incremented seq to start from 1
+                "seq": 1,  # Placeholder value, adjust as needed
                 "stamp": {
                     "secs": 0,
                     "nsecs": 0
@@ -79,7 +79,7 @@ else:
     # Write the YAML data to the output file
     output_data = {
         "header": {
-            "seq": 1,
+            "seq": 1,  # Placeholder value, adjust as needed
             "stamp": {
                 "secs": 0,
                 "nsecs": 0
