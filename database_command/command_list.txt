@@ -1,5 +1,28 @@
-#column date_added time_added running_date terminal_name command
-1 22/11/2023 17:11:10 22/11/2023 18:10:11 rqtgraph rqt_graph
-2 22/11/2023 17:15:10 22/11/2023 19:20:11 roscore_check roscore
+#column date_added time_added running_date group terminal_name command
+1 22/11/2023 17:11:10 22/11/2023 18:10:11 core roscorerqtgraph rqt_graph
+2 22/11/2023 17:15:10 22/11/2023 19:20:11 core roscore_check roscore
+3 23/11/2023 17:15:10 22/11/2023 19:20:11 hunter hunter_rviz roslaunch hunter2_base display_xacro.launch
+4 23/11/2023 17:15:10 22/11/2023 19:20:11 hunter hunter_gazebo roslaunch hunter2_gazebo hunter2_gazebo.launch
+5 23/11/2023 17:15:10 22/11/2023 19:20:11 limo limo_gazebo_ackerman roslaunch limo_gazebo_sim limo_ackerman.launch
+6 23/11/2023 17:15:10 22/11/2023 19:20:11 limo limo_gazebo_rqt rosrun rqt_robot_steering rqt_robot_steering
+7 23/11/2023 17:15:10 22/11/2023 19:20:11 limo limo_gazebo_diff roslaunch limo_gazebo_sim limo_four_diff.launch
+8 23/11/2023 17:15:10 22/11/2023 19:20:11 core teleop_cmd_vel rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+9 23/11/2023 17:15:10 22/11/2023 19:20:11 limo limo_rviz "roslaunch limo_description display_models.launch" 
+10 23/11/2023 17:15:10 22/11/2023 19:20:11 steerbot_sim steeerbot_gazebo roslaunch steer_bot_gazebo steer_bot_sim.launch
+10 23/11/2023 17:15:10 22/11/2023 19:20:11 steerbot_sim steerbot_bicyle roslaunch steer_bot_gazebo bicycle_bot_sim.launch 
+11 23/11/2023 17:15:10 22/11/2023 19:20:11 steerbot_sim steerbot_rviz roslaunch steer_bot_viz view_steer_bot_robot.launch 
+12 23/11/2023 17:15:10 22/11/2023 19:20:11 steerbot_sim publish_forward "rostopic pub /steer_bot/ackermann_steering_controller/cmd_vel geometry_msgs/Twist -r 3 -- '[0.5,0.0,0.0]' '[0.0, 0.0, 0.0]'"
+13 23/11/2023 17:15:10 22/11/2023 19:20:11 steerbot_sim steerbot_check_vel rostopic echo /steer_bot/ackermann_steering_controller/cmd_vel 
+14 23/11/2023 17:15:10 22/11/2023 19:20:11 steerbot_sim steeerbot_gazebo roslaunch steer_bot_gazebo steer_bot_sim_cmd_vel.launch
+15 23/11/2023 17:15:10 22/11/2023 19:20:11 bunker_explorer_waypoint rosrun bunker_explorer_waypoint converter_navgoal.py
+16 23/11/2023 17:15:10 22/11/2023 19:20:11 rpg_traj_eval single_traj python scripts/analyze_trajectory_single.py results/
+16 23/11/2023 17:15:10 22/11/2023 19:20:11 conda activate trajectory_eval_env_27
+17 31/11/2023 17:15:10 22/11/2023 19:20:11 bunker_sim_gps roslaunch bunker_explorer_description bunker_sim_camera_base-footprint.launch
+18 31/11/2023 17:15:10 22/11/2023 19:20:11 bunker_sim_gps roslaunch outdoor_waypoint_nav collect_goals_sim_bunker_ucom.launch
+19 31/11/2023 17:15:10 22/11/2023 19:20:11 bunker_sim_gps roslaunch outdoor_waypoint_nav localization_run_bunker_sim.launch
+20 31/11/2023 17:15:10 22/11/2023 19:20:11 bunker_sim_gps roslaunch joy2twist gamepad_controller.launch
+21 31/11/2023 17:15:10 22/11/2023 19:20:11 bunker_sim_gps roslaunch teleop_twist_joy teleop.launch
+heading_calibration_sim.launch
+safety_node.launch
+gps_waypoint.cpp send_goals.launch
 
- 
