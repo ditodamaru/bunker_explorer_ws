@@ -46,7 +46,6 @@
       <material name="red"/>
     </visual>
   </link>
-
   <link name="servo_bottom2">
     <visual>
       <geometry>
@@ -67,18 +66,16 @@
     </visual>
   </link>  
     
-  <joint name="base_to_Servo_B2" type="fixed">
+ <joint name="base_to_Servo_B2" type="fixed">
     <parent link="rbot_base2"/>
     <child link="servo_bottom2"/>
     <origin xyz="0 0 0.14"/>
   </joint>
-
-  <joint name="servo_bottom_to_up_mount2" type="fixed">
+ <joint name="servo_bottom_to_up_mount2" type="fixed">
     <parent link="servo_bottom2"/>
     <child link="up_mount2"/>
     <origin xyz="0 0 0.15"/>
   </joint>
-
   <joint name="mount_to_camera2" type="fixed">
     <parent link="up_mount2"/>
     <child link="camera_link"/> <!-- original: base_link -->
@@ -87,72 +84,71 @@
     
 <!-- add frame stand joint gps 19Nov23 -->
   <joint name="baseto_framestand_gps" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.25 0 0"/>
-    <parent link="robot_base"/>
-    <child link="rbot_base3"/>
+	<origin rpy="0 0 0" xyz="-0.25 0 0"/>
+	<parent link="robot_base"/>
+	<child link="rbot_base3"/>
   </joint>
     
   <link name="rbot_base3">
-    <visual>
-      <geometry>
-        <box size="0.045 0.09 0.03"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="red"/>
-    </visual>
+	<visual>
+  	<geometry>
+    	<box size="0.045 0.09 0.03"/>
+  	</geometry>
+  	<origin rpy="0 0 0" xyz="0 0 0"/>
+  	<material name="red"/>
+	</visual>
   </link>
 
   <link name="servo_bottom3">
-    <visual>
-      <geometry>
-        <cylinder length="0.25" radius="0.015"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="green"/>
-    </visual>
+	<visual>
+  	<geometry>
+    	<cylinder length="0.25" radius="0.015"/>
+  	</geometry>
+  	<origin rpy="0 0 0" xyz="0 0 0"/>
+  	<material name="green"/>
+	</visual>
   </link>
 
   <link name="up_mount3">
-    <visual>
-      <geometry>
-        <box size="0.05 0.148 0.05"/>
-      </geometry>
-      <origin rpy="0 0. 0" xyz="0 0 0"/>
-      <material name="blue"/>
-    </visual>
+	<visual>
+  	<geometry>
+    	<box size="0.05 0.148 0.05"/>
+  	</geometry>
+  	<origin rpy="0 0. 0" xyz="0 0 0"/>
+  	<material name="blue"/>
+	</visual>
   </link>	
-
   <link name="gps_link">
-    <visual>
-      <geometry>
-        <cylinder length="0.065" radius="0.075"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="green"/>
-    </visual>
+	<visual>
+  	<geometry>
+    	<cylinder length="0.065" radius="0.075"/>
+  	</geometry>
+  	<origin rpy="0 0 0" xyz="0 0 0"/>
+  	<material name="green"/>
+	</visual>
   </link>  
  
-  <joint name="base_to_gps" type="fixed">
-    <parent link="rbot_base3"/>
-    <child link="servo_bottom3"/>
-    <origin xyz="0 0 0.14"/>
+   
+ <joint name="base_to_gps" type="fixed">
+	<parent link="rbot_base3"/>
+	<child link="servo_bottom3"/>
+	<origin xyz="0 0 0.14"/>
   </joint>
-
-  <joint name="servo_bottom_to_up_mount3" type="fixed">
-    <parent link="servo_bottom3"/>
-    <child link="up_mount3"/>
-    <origin xyz="0 0 0.15"/>
+ <joint name="servo_bottom_to_up_mount3" type="fixed">
+	<parent link="servo_bottom3"/>
+	<child link="up_mount3"/>
+	<origin xyz="0 0 0.15"/>
   </joint>
-
   <joint name="mount_to_gps" type="fixed">
-    <parent link="up_mount3"/>
-    <child link="gps_link"/> <!-- original: base_link -->
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+	<parent link="up_mount3"/>
+	<child link="gps_link"/> <!-- original: base_link -->
+	<origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
   </joint>
 
 <!--  ======= End of editing on 19 Nov 23 ======== --> 
       
-  <link name="robot_base"> <!--original : base_link -->
+  <link
+    name="robot_base"> <!--original : base_link -->
      <inertial>
       <origin
         xyz="0.0212410555532523 0.00475458359568469 -0.127580557949736"
@@ -191,8 +187,8 @@
       </geometry>
     </collision>
   </link>
-
-  <link name="wheel1_Link">
+  <link
+    name="wheel1_Link">
     <inertial>
       <origin
         xyz="0 -1.38777878078145E-17 -0.0719999999999999"
@@ -231,8 +227,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel1_joint"
+  <joint
+    name="wheel1_joint"
     type="revolute">
     <origin
       xyz="0.44403 0.3495 -0.12853"
@@ -249,8 +245,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel1.1_Link">
+  <link
+    name="wheel1.1_Link">
     <inertial>
       <origin
         xyz="-1.74279013442913E-08 5.87093572021469E-08 -0.0720000000000001"
@@ -289,8 +285,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel1.1_jont"
+  <joint
+    name="wheel1.1_jont"
     type="revolute">
     <origin
       xyz="0.37551 0.3495 -0.22305"
@@ -307,8 +303,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel1.2_Link">
+  <link
+    name="wheel1.2_Link">
     <inertial>
       <origin
         xyz="1.66533453693773E-16 4.16333634234434E-17 -0.0720000000000002"
@@ -347,8 +343,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel1.2_joint"
+  <joint
+    name="wheel1.2_joint"
     type="revolute">
     <origin
       xyz="0.29039 0.3495 -0.28104"
@@ -365,8 +361,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel1.3_Link">
+  <link
+    name="wheel1.3_Link">
     <inertial>
       <origin
         xyz="3.44025652177504E-05 -2.66346274915008E-05 -0.0701504149473696"
@@ -405,8 +401,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel1.3_joint"
+  <joint
+    name="wheel1.3_joint"
     type="revolute">
     <origin
       xyz="0.29603 0.3495 -0.087"
@@ -423,8 +419,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel2_Link">
+  <link
+    name="wheel2_Link">
     <inertial>
       <origin
         xyz="-1.66533453693773E-16 0 0.072"
@@ -463,8 +459,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel2_joint"
+  <joint
+    name="wheel2_joint"
     type="revolute">
     <origin
       xyz="0.44403 -0.3495 -0.12853"
@@ -481,8 +477,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel2.1_Link">
+  <link
+    name="wheel2.1_Link">
     <inertial>
       <origin
         xyz="-1.74279017328693E-08 5.87093572160247E-08 0.0720000000000002"
@@ -521,8 +517,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel2.1_joint"
+  <joint
+    name="wheel2.1_joint"
     type="revolute">
     <origin
       xyz="0.37551 -0.3495 -0.22305"
@@ -539,8 +535,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel2.2_Link">
+  <link
+    name="wheel2.2_Link">
     <inertial>
       <origin
         xyz="-1.38777878078145E-16 -4.85722573273506E-17 0.0720000000000003"
@@ -579,8 +575,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel2.2_joint"
+  <joint
+    name="wheel2.2_joint"
     type="revolute">
     <origin
       xyz="0.29039 -0.3495 -0.28104"
@@ -597,8 +593,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel2.3_Link">
+  <link
+    name="wheel2.3_Link">
     <inertial>
       <origin
         xyz="3.51083051564616E-05 -2.7181014665284E-05 0.0709276770204769"
@@ -637,8 +633,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel2.3_joint"
+  <joint
+    name="wheel2.3_joint"
     type="revolute">
     <origin
       xyz="0.29603 -0.3495 -0.087"
@@ -655,8 +651,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel3_Link">
+  <link
+    name="wheel3_Link">
     <inertial>
       <origin
         xyz="-1.5143569731535E-10 7.07767178198537E-16 -0.0246054820762604"
@@ -695,8 +691,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel3_joint"
+  <joint
+    name="wheel3_joint"
     type="revolute">
     <origin
       xyz="-0.38871 0.295 -0.19381"
@@ -713,8 +709,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel3.1_Link">
+  <link
+    name="wheel3.1_Link">
     <inertial>
       <origin
         xyz="5.55111512312578E-17 5.55111512312578E-17 -0.0720000000000002"
@@ -753,8 +749,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel3.1_joint"
+  <joint
+    name="wheel3.1_joint"
     type="revolute">
     <origin
       xyz="-0.23111 0.3495 -0.27671"
@@ -771,8 +767,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel3.2_Link">
+  <link
+    name="wheel3.2_Link">
     <inertial>
       <origin
         xyz="7.58128369110489E-17 7.63278329429795E-17 -0.0720000000000003"
@@ -811,7 +807,6 @@
       </geometry>
     </collision>
   </link>
-
   <joint
     name="wheel3.2_joint"
     type="revolute">
@@ -830,8 +825,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel3.3_Link">
+  <link
+    name="wheel3.3_Link">
     <inertial>
       <origin
         xyz="1.37732703020532E-08 -5.29206664124648E-05 -0.0701501700151683"
@@ -870,8 +865,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel3.3_joint"
+  <joint
+    name="wheel3.3_joint"
     type="revolute">
     <origin
       xyz="-0.28597 0.3495 -0.087"
@@ -888,8 +883,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel4_Link">
+  <link
+    name="wheel4_Link">
     <inertial>
       <origin
         xyz="5.55111512312578E-17 1.51436273243544E-10 0.0245928853369881"
@@ -928,8 +923,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel4_joint"
+  <joint
+    name="wheel4_joint"
     type="revolute">
     <origin
       xyz="-0.38871 -0.295 -0.19381"
@@ -946,8 +941,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel4.1_Link">
+  <link
+    name="wheel4.1_Link">
     <inertial>
       <origin
         xyz="-1.11022302462516E-16 -5.55111512312578E-17 0.0720000000000002"
@@ -986,8 +981,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel4.1_joint"
+  <joint
+    name="wheel4.1_joint"
     type="revolute">
     <origin
       xyz="-0.23111 -0.3495 -0.27671"
@@ -1004,8 +999,8 @@
       effort="0"
       velocity="0" />
   </joint>
-  
-  <link name="wheel4.2_Link">
+  <link
+    name="wheel4.2_Link">
     <inertial>
       <origin
         xyz="-7.64498056873841E-17 -4.85722573273506E-17 0.0720000000000004"
@@ -1044,8 +1039,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel4.2_joint"
+  <joint
+    name="wheel4.2_joint"
     type="revolute">
     <origin
       xyz="0.043885 -0.3495 -0.27671"
@@ -1062,8 +1057,8 @@
       effort="0"
       velocity="0" />
   </joint>
-
-  <link name="wheel4.3_Link">
+  <link
+    name="wheel4.3_Link">
     <inertial>
       <origin
         xyz="1.37732700244975E-08 -5.29206664124926E-05 0.0701152686893121"
@@ -1102,8 +1097,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel4.3_joint"
+  <joint
+    name="wheel4.3_joint"
     type="revolute">
     <origin
       xyz="-0.28597 -0.3495 -0.087"
@@ -1120,6 +1115,7 @@
       effort="0"
       velocity="0" />
   </joint>
+
 
   <!-- add joint frame stand 13 Nov 23-->  
 <!--  <joint name="baseto_framestand" type="fixed">
@@ -1231,37 +1227,6 @@
     </sensor>
   </link> -->
 
- <!-- ====== add imu link on 19 nov23 ====== -->
-  <link name="imu_link">
-    <visual>
-      <geometry>
-        <box size="0.05 0.02 0.02"/>
-      </geometry>
-      <material name="red"/>
-    </visual>
-  </link>
-    
-  <joint name="imu_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.025 -0.015 0.005"/>
-    <parent link="camera_link"/>
-    <child link="imu_link"/>
-  </joint>
-
- <!-- ====== add imu link2 on 19 nov23 ====== -->
-  <link name="imu_link2">
-    <visual>
-      <geometry>
-        <box size="0.05 0.026 0.005"/>
-      </geometry>
-      <material name="red"/>
-    </visual>
-  </link>
-    
-  <joint name="imu_joint2" type="fixed">
-	  <origin rpy="0 0 0" xyz="0.0 0.0 0.001"/>
-	  <parent link="robot_base"/>
-	  <child link="imu_link2"/>
-  </joint>
 
   <!-- /////////////////////////////////   gazebo color   ////////////////////////////////////// -->
 
@@ -1278,7 +1243,6 @@
       <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
   </gazebo> -->
-  
   <gazebo>
     <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
       <commandTopic>smoother_cmd_vel</commandTopic> <!-- original cmd_vel -->

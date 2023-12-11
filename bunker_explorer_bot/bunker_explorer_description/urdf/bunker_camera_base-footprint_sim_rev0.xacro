@@ -4,13 +4,8 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot  name="bunker_realsense_description" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:property name="r200_cam_rgb_px" value="0.005"/>
-  <xacro:property name="r200_cam_rgb_py" value="0.018"/>
-  <xacro:property name="r200_cam_rgb_pz" value="0.013"/>
-  <xacro:property name="r200_cam_depth_offset" value="0.01"/>
-
   <xacro:arg name="camera_visual" default="false"/>
- 
+
   <link name="base_footprint"/>
 
   <joint name="base_joint" type="fixed">
@@ -73,7 +68,7 @@
     <origin xyz="0 0 0.14"/>
   </joint>
 
-  <joint name="servo_bottom_to_up_mount2" type="fixed">
+ <joint name="servo_bottom_to_up_mount2" type="fixed">
     <parent link="servo_bottom2"/>
     <child link="up_mount2"/>
     <origin xyz="0 0 0.15"/>
@@ -81,8 +76,8 @@
 
   <joint name="mount_to_camera2" type="fixed">
     <parent link="up_mount2"/>
-    <child link="camera_link"/> <!-- original: base_link -->
-    <origin rpy="0 0 0" xyz="0.03 -0.065 0.00"/>
+    <child link="base_link"/> <!-- original: base_link -->
+    <origin rpy="0 0 0" xyz="0.03 -0.0 0.00"/>
   </joint>
     
 <!-- add frame stand joint gps 19Nov23 -->
@@ -93,45 +88,46 @@
   </joint>
     
   <link name="rbot_base3">
-    <visual>
-      <geometry>
-        <box size="0.045 0.09 0.03"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="red"/>
-    </visual>
+	<visual>
+  	<geometry>
+    	<box size="0.045 0.09 0.03"/>
+  	</geometry>
+  	<origin rpy="0 0 0" xyz="0 0 0"/>
+  	<material name="red"/>
+	</visual>
   </link>
 
   <link name="servo_bottom3">
-    <visual>
-      <geometry>
-        <cylinder length="0.25" radius="0.015"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="green"/>
-    </visual>
+	<visual>
+  	<geometry>
+    	<cylinder length="0.25" radius="0.015"/>
+  	</geometry>
+  	<origin rpy="0 0 0" xyz="0 0 0"/>
+  	<material name="green"/>
+	</visual>
   </link>
 
   <link name="up_mount3">
-    <visual>
-      <geometry>
-        <box size="0.05 0.148 0.05"/>
-      </geometry>
-      <origin rpy="0 0. 0" xyz="0 0 0"/>
-      <material name="blue"/>
-    </visual>
+	<visual>
+  	<geometry>
+    	<box size="0.05 0.148 0.05"/>
+  	</geometry>
+  	<origin rpy="0 0. 0" xyz="0 0 0"/>
+  	<material name="blue"/>
+	</visual>
   </link>	
 
   <link name="gps_link">
-    <visual>
-      <geometry>
-        <cylinder length="0.065" radius="0.075"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="green"/>
-    </visual>
+	<visual>
+  	<geometry>
+    	<cylinder length="0.065" radius="0.075"/>
+  	</geometry>
+  	<origin rpy="0 0 0" xyz="0 0 0"/>
+  	<material name="green"/>
+	</visual>
   </link>  
  
+   
   <joint name="base_to_gps" type="fixed">
     <parent link="rbot_base3"/>
     <child link="servo_bottom3"/>
@@ -150,9 +146,10 @@
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
   </joint>
 
-<!--  ======= End of editing on 19 Nov 23 ======== --> 
+<!--  ======= End of gps urdf editing on 19 Nov 23 ======== --> 
       
-  <link name="robot_base"> <!--original : base_link -->
+  <link
+    name="robot_base"> <!--original : base_link -->
      <inertial>
       <origin
         xyz="0.0212410555532523 0.00475458359568469 -0.127580557949736"
@@ -192,7 +189,8 @@
     </collision>
   </link>
 
-  <link name="wheel1_Link">
+  <link
+    name="wheel1_Link">
     <inertial>
       <origin
         xyz="0 -1.38777878078145E-17 -0.0719999999999999"
@@ -232,7 +230,8 @@
     </collision>
   </link>
 
-  <joint name="wheel1_joint"
+  <joint
+    name="wheel1_joint"
     type="revolute">
     <origin
       xyz="0.44403 0.3495 -0.12853"
@@ -250,7 +249,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel1.1_Link">
+  <link
+    name="wheel1.1_Link">
     <inertial>
       <origin
         xyz="-1.74279013442913E-08 5.87093572021469E-08 -0.0720000000000001"
@@ -290,7 +290,8 @@
     </collision>
   </link>
 
-  <joint name="wheel1.1_jont"
+  <joint
+    name="wheel1.1_jont"
     type="revolute">
     <origin
       xyz="0.37551 0.3495 -0.22305"
@@ -308,7 +309,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel1.2_Link">
+  <link
+    name="wheel1.2_Link">
     <inertial>
       <origin
         xyz="1.66533453693773E-16 4.16333634234434E-17 -0.0720000000000002"
@@ -347,8 +349,8 @@
       </geometry>
     </collision>
   </link>
-
-  <joint name="wheel1.2_joint"
+  <joint
+    name="wheel1.2_joint"
     type="revolute">
     <origin
       xyz="0.29039 0.3495 -0.28104"
@@ -366,7 +368,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel1.3_Link">
+  <link
+    name="wheel1.3_Link">
     <inertial>
       <origin
         xyz="3.44025652177504E-05 -2.66346274915008E-05 -0.0701504149473696"
@@ -406,7 +409,8 @@
     </collision>
   </link>
 
-  <joint name="wheel1.3_joint"
+  <joint
+    name="wheel1.3_joint"
     type="revolute">
     <origin
       xyz="0.29603 0.3495 -0.087"
@@ -424,7 +428,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel2_Link">
+  <link
+    name="wheel2_Link">
     <inertial>
       <origin
         xyz="-1.66533453693773E-16 0 0.072"
@@ -464,7 +469,8 @@
     </collision>
   </link>
 
-  <joint name="wheel2_joint"
+  <joint
+    name="wheel2_joint"
     type="revolute">
     <origin
       xyz="0.44403 -0.3495 -0.12853"
@@ -482,7 +488,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel2.1_Link">
+  <link
+    name="wheel2.1_Link">
     <inertial>
       <origin
         xyz="-1.74279017328693E-08 5.87093572160247E-08 0.0720000000000002"
@@ -522,7 +529,8 @@
     </collision>
   </link>
 
-  <joint name="wheel2.1_joint"
+  <joint
+    name="wheel2.1_joint"
     type="revolute">
     <origin
       xyz="0.37551 -0.3495 -0.22305"
@@ -540,7 +548,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel2.2_Link">
+  <link
+    name="wheel2.2_Link">
     <inertial>
       <origin
         xyz="-1.38777878078145E-16 -4.85722573273506E-17 0.0720000000000003"
@@ -580,7 +589,8 @@
     </collision>
   </link>
 
-  <joint name="wheel2.2_joint"
+  <joint
+    name="wheel2.2_joint"
     type="revolute">
     <origin
       xyz="0.29039 -0.3495 -0.28104"
@@ -598,7 +608,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel2.3_Link">
+  <link
+    name="wheel2.3_Link">
     <inertial>
       <origin
         xyz="3.51083051564616E-05 -2.7181014665284E-05 0.0709276770204769"
@@ -638,7 +649,8 @@
     </collision>
   </link>
 
-  <joint name="wheel2.3_joint"
+  <joint
+    name="wheel2.3_joint"
     type="revolute">
     <origin
       xyz="0.29603 -0.3495 -0.087"
@@ -656,7 +668,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel3_Link">
+  <link
+    name="wheel3_Link">
     <inertial>
       <origin
         xyz="-1.5143569731535E-10 7.07767178198537E-16 -0.0246054820762604"
@@ -696,7 +709,8 @@
     </collision>
   </link>
 
-  <joint name="wheel3_joint"
+  <joint
+    name="wheel3_joint"
     type="revolute">
     <origin
       xyz="-0.38871 0.295 -0.19381"
@@ -714,7 +728,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel3.1_Link">
+  <link
+    name="wheel3.1_Link">
     <inertial>
       <origin
         xyz="5.55111512312578E-17 5.55111512312578E-17 -0.0720000000000002"
@@ -754,7 +769,8 @@
     </collision>
   </link>
 
-  <joint name="wheel3.1_joint"
+  <joint
+    name="wheel3.1_joint"
     type="revolute">
     <origin
       xyz="-0.23111 0.3495 -0.27671"
@@ -772,7 +788,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel3.2_Link">
+  <link
+    name="wheel3.2_Link">
     <inertial>
       <origin
         xyz="7.58128369110489E-17 7.63278329429795E-17 -0.0720000000000003"
@@ -831,7 +848,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel3.3_Link">
+  <link
+    name="wheel3.3_Link">
     <inertial>
       <origin
         xyz="1.37732703020532E-08 -5.29206664124648E-05 -0.0701501700151683"
@@ -871,7 +889,8 @@
     </collision>
   </link>
 
-  <joint name="wheel3.3_joint"
+  <joint
+    name="wheel3.3_joint"
     type="revolute">
     <origin
       xyz="-0.28597 0.3495 -0.087"
@@ -889,7 +908,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel4_Link">
+  <link
+    name="wheel4_Link">
     <inertial>
       <origin
         xyz="5.55111512312578E-17 1.51436273243544E-10 0.0245928853369881"
@@ -929,7 +949,8 @@
     </collision>
   </link>
 
-  <joint name="wheel4_joint"
+  <joint
+    name="wheel4_joint"
     type="revolute">
     <origin
       xyz="-0.38871 -0.295 -0.19381"
@@ -947,7 +968,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel4.1_Link">
+  <link
+    name="wheel4.1_Link">
     <inertial>
       <origin
         xyz="-1.11022302462516E-16 -5.55111512312578E-17 0.0720000000000002"
@@ -987,7 +1009,8 @@
     </collision>
   </link>
 
-  <joint name="wheel4.1_joint"
+  <joint
+    name="wheel4.1_joint"
     type="revolute">
     <origin
       xyz="-0.23111 -0.3495 -0.27671"
@@ -1004,8 +1027,9 @@
       effort="0"
       velocity="0" />
   </joint>
-  
-  <link name="wheel4.2_Link">
+
+  <link
+    name="wheel4.2_Link">
     <inertial>
       <origin
         xyz="-7.64498056873841E-17 -4.85722573273506E-17 0.0720000000000004"
@@ -1045,7 +1069,8 @@
     </collision>
   </link>
 
-  <joint name="wheel4.2_joint"
+  <joint
+    name="wheel4.2_joint"
     type="revolute">
     <origin
       xyz="0.043885 -0.3495 -0.27671"
@@ -1063,7 +1088,8 @@
       velocity="0" />
   </joint>
 
-  <link name="wheel4.3_Link">
+  <link
+    name="wheel4.3_Link">
     <inertial>
       <origin
         xyz="1.37732700244975E-08 -5.29206664124926E-05 0.0701152686893121"
@@ -1103,7 +1129,8 @@
     </collision>
   </link>
 
-  <joint name="wheel4.3_joint"
+  <joint
+    name="wheel4.3_joint"
     type="revolute">
     <origin
       xyz="-0.28597 -0.3495 -0.087"
@@ -1121,115 +1148,129 @@
       velocity="0" />
   </joint>
 
-  <!-- add joint frame stand 13 Nov 23-->  
-<!--  <joint name="baseto_framestand" type="fixed">
-    <origin rpy="0 0 0" xyz="0.3 0 0"/>
-    <parent link="robot_base"/>
-    <child link="rbot_base2"/>
-  </joint> -->
+<!-- =======add realsense d435i real camera plugin edited on 19nov23 ========= --> 
+  <material name="aluminum">
+	  <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+  <material name="plastic">
+	  <color rgba="0.1 0.1 0.1 1"/>
+  </material>
 
-<!-- original joint r200 camera to bunker -->
-<!--  <joint name="camera_joint" type="fixed">
-    <origin xyz="0.064 -0.065 0.094" rpy="0 0 0"/>
-    <parent link="robot_base"/> <!-original base link -> 
+  <link name="base_link"/>
+  <!-- camera body, with origin at bottom screw mount -->
+  <joint name="camera_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="camera_bottom_screw_frame"/>
+  </joint>
+  
+  <link name="camera_bottom_screw_frame"/>
+  <joint name="camera_link_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0106 0.0175 0.0125"/>
+    <parent link="camera_bottom_screw_frame"/>
     <child link="camera_link"/>
-  </joint> -->
+  </joint>
 
   <link name="camera_link">
+
     <visual>
-     <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
-      <geometry>
-       <mesh filename="package://bunker_description/meshes/sensors/r200.dae" />
-      </geometry>
+      <!-- the mesh origin is at front plate in between the two infrared camera axes -->
+      <origin rpy="1.57079632679 0 1.57079632679" xyz="0.0043 -0.0175 0"/>
+        <geometry>
+          <mesh filename="package://realsense2_description/meshes/d435.dae"/>
+        </geometry>
     </visual>
     <collision>
-      <origin xyz="0.003 0.065 0.007" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.012 0.132 0.020"/>
-      </geometry>
+      <origin rpy="0 0 0" xyz="0 -0.0175 0"/>
+        <geometry>
+          <box size="0.02505 0.09 0.025"/>
+        </geometry>
     </collision>
+    <inertial>
+      <!-- The following are not reliable values, and should not be used for modeling -->
+      <mass value="0.072"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.003881243" ixy="0.0" ixz="0.0" iyy="0.000498940" iyz="0.0" izz="0.003879257"/>
+    </inertial>
+  </link>
 
-    <!-- This inertial field needs doesn't contain reliable data!! -->
-<!--   <inertial>
-      <mass value="0.564" />
-      <origin xyz="0 0 0" />
-      <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-               iyy="0.000498940" iyz="0.0"
-               izz="0.003879257" />
-    </inertial>-->
-  </link>  
-
-  <joint name="camera_rgb_joint" type="fixed">
-    <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py} ${r200_cam_rgb_pz}" rpy="0 0 0"/>
-    <parent link="camera_link"/>
-    <child link="camera_rgb_frame"/>
-  </joint>
-  <link name="camera_rgb_frame"/>
-
-  <joint name="camera_rgb_optical_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
-    <parent link="camera_rgb_frame"/>
-    <child link="camera_rgb_optical_frame"/>
-  </joint>
-  <link name="camera_rgb_optical_frame"/>
-
+  <!-- camera depth joints and links -->
   <joint name="camera_depth_joint" type="fixed">
-    <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py + r200_cam_depth_offset} ${r200_cam_rgb_pz}" rpy="0 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="camera_link"/>
     <child link="camera_depth_frame"/>
   </joint>
+
   <link name="camera_depth_frame"/>
 
   <joint name="camera_depth_optical_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
     <parent link="camera_depth_frame"/>
-    <child link="camera_depth_optical_frame"/>
+	  <child link="camera_depth_optical_frame"/>
   </joint>
+
   <link name="camera_depth_optical_frame"/>
+  <!-- camera left IR joints and links -->
+  <joint name="camera_infra1_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_infra1_frame"/>
+  </joint>
+  
+  <link name="camera_infra1_frame"/>
+  
+  <joint name="camera_infra1_optical_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="camera_infra1_frame"/>
+    <child link="camera_infra1_optical_frame"/>
+  </joint>
 
-  <!-- from waffle models sdf from pkg=turtlebot3_simulation-->
-  <!-- <link name="image">
-    <inertial>
-      <pose>-0.069 0 0.104 0 0 0</pose>
-      <inertia>
-        <ixx>0.001</ixx>
-        <ixy>0.000</ixy>
-        <ixz>0.000</ixz>
-        <iyy>0.001</iyy>
-        <iyz>0.000</iyz>
-        <izz>0.001</izz>
-      </inertia>
-      <mass>0.035</mass>
-    </inertial>
+  <link name="camera_infra1_optical_frame"/>
+  
+  <!-- camera right IR joints and links -->
+  <joint name="camera_infra2_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.05 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_infra2_frame"/>
+  </joint>
 
-    <collision name="image_collision">
-      <pose>-0.069 0 0.104 0 0 0</pose>
-      <geometry>
-        <box>
-          <size>0.008 0.130 0.022</size>
-        </box>
-      </geometry>
-    </collision>
+  <link name="camera_infra2_frame"/>
+    <joint name="camera_infra2_optical_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="camera_infra2_frame"/>
+    <child link="camera_infra2_optical_frame"/>
+  </joint>
 
-    <sensor name="intel_realsense_r200" type="camera">
-      <always_on>1</always_on>
-      <visualize>0</visualize>
-      <update_rate>30</update_rate>
-      <pose>0.064 -0.047 0.107 0 0 0</pose>
-      <camera>
-        <horizontal_fov>1.02974</horizontal_fov>
-        <image>
-          <width>1920</width>
-          <height>1080</height>
-          <format>R8G8B8</format>
-        </image>
-        <clip>
-          <near>0.02</near>
-          <far>300</far>
-        </clip>
-      </camera>
-    </sensor>
-  </link> -->
+  <link name="camera_infra2_optical_frame"/>
+
+  <!-- camera color joints and links -->
+  <joint name="camera_color_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.015 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_color_frame"/>
+  </joint>
+
+  <link name="camera_color_frame"/>
+
+  <joint name="camera_color_optical_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="camera_color_frame"/>
+    <child link="camera_color_optical_frame"/>
+  </joint>
+
+  <link name="camera_color_optical_frame"/>
+  
+  <material name="blue">
+	  <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="red">
+	  <color rgba="1 0 0 1"/>
+  </material>
+  <material name="white">
+	  <color rgba="1 1 1 1"/>
+  </material>
+
+<!-- ===== end of editing add camera for real robot 19nov 23 ===========  -->
 
  <!-- ====== add imu link on 19 nov23 ====== -->
   <link name="imu_link">
@@ -1257,11 +1298,16 @@
     </visual>
   </link>
     
-  <joint name="imu_joint2" type="fixed">
+  <joint name="imu_joint" type="fixed">
 	  <origin rpy="0 0 0" xyz="0.0 0.0 0.001"/>
 	  <parent link="robot_base"/>
 	  <child link="imu_link2"/>
   </joint>
+
+ <!-- ====== end of editing imu link 1 and 2 on 19 nov23 ====== -->
+
+
+
 
   <!-- /////////////////////////////////   gazebo color   ////////////////////////////////////// -->
 
@@ -1278,7 +1324,6 @@
       <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
   </gazebo> -->
-  
   <gazebo>
     <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
       <commandTopic>smoother_cmd_vel</commandTopic> <!-- original cmd_vel -->
@@ -1358,7 +1403,7 @@
       <referenceLongitude>127.746019</referenceLongitude>
       <referenceHeading>0</referenceHeading>
       <referenceAltitude>0</referenceAltitude>
-      <drift>0.001 0.001 0.001</drift> 
+      <drift>0.001 0.001 0.001</drift>
     </plugin>
   </gazebo>
 
@@ -1367,8 +1412,8 @@
     <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
       <robotNamespace>/</robotNamespace>
       <updateRate>50.0</updateRate>
-      <bodyName>camera_link</bodyName> <!--original base_link-->
-      <!--frameId>imu_link</fameId-->
+      <bodyName>imu_link</bodyName> <!--original base_link-->
+      <frameId>imu_link</frameId>
       <topicName>imu/data</topicName>
       <accelDrift>0.005 0.005 0.005</accelDrift>
       <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>

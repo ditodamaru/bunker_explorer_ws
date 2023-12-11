@@ -10,7 +10,7 @@
   <xacro:property name="r200_cam_depth_offset" value="0.01"/>
 
   <xacro:arg name="camera_visual" default="false"/>
- 
+
   <link name="base_footprint"/>
 
   <joint name="base_joint" type="fixed">
@@ -131,7 +131,7 @@
       <material name="green"/>
     </visual>
   </link>  
- 
+    
   <joint name="base_to_gps" type="fixed">
     <parent link="rbot_base3"/>
     <child link="servo_bottom3"/>
@@ -150,7 +150,7 @@
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
   </joint>
 
-<!--  ======= End of editing on 19 Nov 23 ======== --> 
+<!--  ======= End of gps urdf editing on 19 Nov 23 ======== --> 
       
   <link name="robot_base"> <!--original : base_link -->
      <inertial>
@@ -1004,7 +1004,7 @@
       effort="0"
       velocity="0" />
   </joint>
-  
+
   <link name="wheel4.2_Link">
     <inertial>
       <origin
@@ -1137,7 +1137,7 @@
 
   <link name="camera_link">
     <visual>
-     <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
+       <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
       <geometry>
        <mesh filename="package://bunker_description/meshes/sensors/r200.dae" />
       </geometry>
@@ -1157,7 +1157,7 @@
                iyy="0.000498940" iyz="0.0"
                izz="0.003879257" />
     </inertial>-->
-  </link>  
+  </link>
 
   <joint name="camera_rgb_joint" type="fixed">
     <origin xyz="${r200_cam_rgb_px} ${r200_cam_rgb_py} ${r200_cam_rgb_pz}" rpy="0 0 0"/>
@@ -1263,6 +1263,8 @@
 	  <child link="imu_link2"/>
   </joint>
 
+ <!-- ====== end of editing imu link 1 and 2 on 19 nov23 ====== -->
+
   <!-- /////////////////////////////////   gazebo color   ////////////////////////////////////// -->
 
  <gazebo reference="robot_base"> <!--base_link-->
@@ -1278,7 +1280,7 @@
       <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
   </gazebo> -->
-  
+
   <gazebo>
     <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
       <commandTopic>smoother_cmd_vel</commandTopic> <!-- original cmd_vel -->
@@ -1358,7 +1360,7 @@
       <referenceLongitude>127.746019</referenceLongitude>
       <referenceHeading>0</referenceHeading>
       <referenceAltitude>0</referenceAltitude>
-      <drift>0.001 0.001 0.001</drift> 
+      <drift>0.001 0.001 0.001</drift>
     </plugin>
   </gazebo>
 
@@ -1367,8 +1369,8 @@
     <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
       <robotNamespace>/</robotNamespace>
       <updateRate>50.0</updateRate>
-      <bodyName>camera_link</bodyName> <!--original base_link-->
-      <!--frameId>imu_link</fameId-->
+      <bodyName>imu_link</bodyName> <!--original base_link-->
+      <frameId>imu_link</frameId>
       <topicName>imu/data</topicName>
       <accelDrift>0.005 0.005 0.005</accelDrift>
       <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>

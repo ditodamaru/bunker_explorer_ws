@@ -71,7 +71,7 @@ class TerminalLauncher(QtWidgets.QWidget):
         commands = [
             #"source ~/.bashrc",
             #"rosrun bunker_bringup bringup_can2usb.bash",
-            "roslaunch bunker_explorer_description bunker_sim_camera_base-footprint.launch",
+            "roslaunch bunker_explorer_description apple_tree_4times3random.launch", #"roslaunch bunker_explorer_description bunker_sim_camera_base-footprint.launch",
             "roslaunch bunker_explorer_description robot_base_bringup_sim.launch",
             #"roslaunch bunker_explorer_perception start_rs_camera.launch",
             #"roslaunch bunker_explorer_control robot_control_ekf.launch",

@@ -1337,15 +1337,15 @@
     <plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
       <!--<robotNamespace>$(arg robot_namespace)</robotNamespace> -->
       <updateRate>40</updateRate>
-      <bodyName>robot_base</bodyName>
-      <frameId>robot_base</frameId>
+      <bodyName>gps_link</bodyName>
+      <frameId>gps_link</frameId>
       <topicName>ublox_gps/fix</topicName> <!-- original navsat/fix-->
       <velocityTopicName>ublox_gps/vel</velocityTopicName> <!-- original navsat/vel-->
-      <referenceLatitude>49.9</referenceLatitude>
-      <referenceLongitude>8.9</referenceLongitude>
+      <referenceLatitude>37.871112</referenceLatitude>
+      <referenceLongitude>127.746019</referenceLongitude>
       <referenceHeading>0</referenceHeading>
       <referenceAltitude>0</referenceAltitude>
-      <drift>0.0001 0.0001 0.0001</drift>
+      <drift>0.001 0.001 0.001</drift>
     </plugin>
   </gazebo>
 
@@ -1354,8 +1354,8 @@
     <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
       <robotNamespace>/</robotNamespace>
       <updateRate>50.0</updateRate>
-      <bodyName>camera_link</bodyName> <!--original base_link-->
-      <!--frameId>imu_link</fameId-->
+      <bodyName>imu_link</bodyName> <!--original base_link-->
+      <frameId>imu_link</fameId>
       <topicName>imu/data</topicName>
       <accelDrift>0.005 0.005 0.005</accelDrift>
       <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>

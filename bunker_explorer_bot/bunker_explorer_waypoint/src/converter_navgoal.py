@@ -37,7 +37,10 @@ else:
 
     # Define the input and output file paths
     input_file = os.path.join(waypoint_dir, selected_file)
-    output_file = "/home/andi/catkin_redevel_ws/src/tracking_pid/trajectories/waypoint_20230829_1828.yaml"
+    #output_file = "/home/andi/catkin_redevel_ws/src/tracking_pid/trajectories/waypoint_20230829_1828.yaml"
+    #output_file = "/home/$USER/github/bunker_eplorer_ws/src/bunker_explorer_ws/tracking_pid/trajectories/waypoint_conv.yaml"
+    #/home/parlab/github/bunker_eplorer_ws/src/bunker_explorer_ws/tracking_pid/trajectories
+    output_file = "/home/parlab/github/bunker_eplorer_ws/src/bunker_explorer_ws/tracking_pid/trajectories/waypoint_conv.yaml"
 
     # Define the frame_id without single quotes
     frame_id = 'map'
