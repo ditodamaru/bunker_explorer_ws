@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- <group ns="outdoor_waypoint_nav"> -->
+  <group ns="bunker_explorer_navigation">
+  <rosparam command="load" file="$(find bunker_explorer_navigation)/params_outdoor_nav/ekf_params_bunker.yaml" />
+  <rosparam command="load" file="$(find bunker_explorer_navigation)/params_outdoor_nav/navsat_params_bunker_sim.yaml" />
+ 
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se_odom" clear_params="true"/>
+
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se_map" clear_params="true">
+    <remap from="odometry/filtered" to="odometry/filtered_map"/>
+  </node>
+
+  <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform" clear_params="true" output="screen" >
+      <remap from="odometry/filtered" to="odometry/filtered_map"/>
+      <!-- <remap from="gps/fix" to="/navsat/fix"/> -->
+      <remap from="gps/fix" to="/ublox_gps/fix"/>
+      <!-- <remap from="imu/data" to="/imu/data"/> -->
+      <remap from="imu/data" to="/rtabmap/imu"/>
+  </node>
+  </group>
+
+</launch>

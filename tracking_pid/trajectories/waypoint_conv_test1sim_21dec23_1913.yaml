@@ -1,0 +1,135 @@
+header:
+  frame_id: map
+  seq: 1
+  stamp:
+    nsecs: 0
+    secs: 0
+poses:
+- header:
+    frame_id: map
+    seq: 1
+    stamp:
+      nsecs: 0
+      secs: 0
+  pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: 1.552837491
+    position:
+      x: 9.261826515
+      y: -0.020123959
+      z: 0.0
+- header:
+    frame_id: map
+    seq: 2
+    stamp:
+      nsecs: 0
+      secs: 0
+  pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: 3.092544794
+    position:
+      x: 9.143419266
+      y: 2.904976368
+      z: 0.0
+- header:
+    frame_id: map
+    seq: 3
+    stamp:
+      nsecs: 0
+      secs: 0
+  pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: 1.584949374
+    position:
+      x: 0.127893448
+      y: 2.859491348
+      z: 0.0
+- header:
+    frame_id: map
+    seq: 4
+    stamp:
+      nsecs: 0
+      secs: 0
+  pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: -0.027635701
+    position:
+      x: 0.815828323
+      y: 5.902840614
+      z: 0.0
+- header:
+    frame_id: map
+    seq: 5
+    stamp:
+      nsecs: 0
+      secs: 0
+  pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: 1.518509626
+    position:
+      x: 10.031787872
+      y: 6.033855915
+      z: 0.0
+- header:
+    frame_id: map
+    seq: 6
+    stamp:
+      nsecs: 0
+      secs: 0
+  pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: 3.061756134
+    position:
+      x: 9.961511612
+      y: 9.467273712
+      z: 0.0
+- header:
+    frame_id: map
+    seq: 7
+    stamp:
+      nsecs: 0
+      secs: 0
+  pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: -1.627005339
+    position:
+      x: 0.315189838
+      y: 9.442869186
+      z: 0.0
+- header:
+    frame_id: map
+    seq: 8
+    stamp:
+      nsecs: 0
+      secs: 0
+  pose:
+    orientation:
+      w: 0.0
+      x: 0.0
+      y: 0.0
+      z: -1.429333329
+    position:
+      x: -0.082985878
+      y: 0.644143105
+      z: 0.0

@@ -6,28 +6,33 @@
   <!-- <arg name="model" default="$(find bunker_explorer_description)/urdf/bunker_explorer_description.urdf.xacro"/> -->
   <arg name="rvizconfig" default="$(find bunker_explorer_description)/rviz/bunker_mapping.rviz" />
 
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find bunker_explorer_description)/world/apple_tree_4times3random.world"/>
-    <arg name="paused" default="false"/>
-    <arg name="use_sim_time" default="true"/>
-    <!-- <arg name="gui" default="$(arg gui)"/> -->
-    <arg name="gui" default="true"/>
-    <arg name="headless" default="false"/>
-    <arg name="debug" default="false"/>
-    <arg name="verbose" default="true"/>
-  </include>
-  
-  <arg name="multi_robot_name" default=""/>
+  <!-- sim launch configuration -->
+  <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+    <arg name="world_name" value="$(find bunker_explorer_description)/world/apple_tree_3times3.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="multi_robot_name" default=""/>
 
-  <!-- Load the URDF into the ROS Parameter Server -->
+  <!- Load the URDF into the ROS Parameter Server ->
   <param name="robot_description" command="$(find xacro)/xacro  $(find bunker_explorer_description)/urdf/bunker_camera_base-footprint.xacro" /> 
 
-  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <!- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot ->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 	args="-unpause -urdf -model bunker -param robot_description -x 0.0 -y 0.0 -z 0.0"/> 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
     <param name="publish_frequency" type="double" value="50.0" />
     <param name="tf_prefix" value="$(arg multi_robot_name)"/>
+  -->
+  
+  <!-- <param name="robot_description" textfile="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_description/urdf/rev4_bunker_realsense_imu_to_robot_base.urdf" /> -->
+  <!-- <param name="robot_description"  textfile="$(find bunker_explorer_description)/urdf/bunker_explorer_description.urdf" /> -->
+  <!-- <param name="robot_description" textfile="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_description/urdf/REV3_bunker_realsense.urdf" /> -->
+  <!-- <param name="robot_description" textfile="/home/andi/catkin_devel_ws/src/bunker_explorer_bot/bunker_explorer_description/urdf/bunker_realsense.urdf" /> -->
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
+
 
 
   <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" >
