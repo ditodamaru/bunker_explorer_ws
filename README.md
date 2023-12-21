@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 # Autonomous Driving Framework for Orchard Environment ROS-based
-Repository ini tentang autonomous driving framework yang telah diuji pada simulation dan real field test berbasis ROS 1 Melodic. Telah ditest pada Ubuntu 18.04 
+This repository is about an autonomous driving framework that has been tested in simulation and real-field tests based on ROS 1 Melodic and Ubuntu 18.04.
 
 <!-- TABLE OF CONTENTS -->
 <details>
