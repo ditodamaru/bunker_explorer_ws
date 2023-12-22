@@ -1,0 +1,143 @@
+header:
+  seq: 1
+  stamp:
+    nsecs: 0
+    secs: 0
+  frame_id: 'map'
+poses:
+  - 
+    header:
+      seq: 0
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'map'
+    pose:
+      position:
+        x: 5.723963737
+        y: 0.056663252
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.638224363
+  - 
+    header:
+      seq: 1
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'map'
+    pose:
+      position:
+        x: 5.871084213
+        y: 2.247908592
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: -3.11601471
+  - 
+    header:
+      seq: 2
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'map'
+    pose:
+      position:
+        x: -0.314683437
+        y: 2.072639704
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.696240783
+  - 
+    header:
+      seq: 3
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'map'
+    pose:
+      position:
+        x: -0.326172829
+        y: 3.818124056
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 0.057679851
+  - 
+    header:
+      seq: 4
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'map'
+    pose:
+      position:
+        x: 5.659667969
+        y: 4.056695461
+        z: 0     
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.41424334
+  - 
+    header:
+      seq: 5
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'map'
+    pose:
+      position:
+        x: 5.420641422
+        y: 6.271817207
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: -3.09745311
+  - 
+    header:
+      seq: 6
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'map'
+    pose:
+      position:
+        x: -0.701519966
+        y: 5.800825119
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: -1.52607560
+  - 
+    header:
+      seq: 7
+      stamp:
+        nsecs: 0
+        secs: 0
+      frame_id: 'map'
+    pose:
+      position:
+        x: 0.041249275
+        y: 0.567239702
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: -1.56704461
