@@ -10,31 +10,22 @@ def convert_txt_to_yaml(input_file, output_file):
         values = map(float, line.strip().split())
         waypoint = {
             'header': {
-                'frame_id': "'''map'''",
                 'seq': i,
-                'stamp': {'nsecs': 0, 'secs': 0}
+                'stamp': {'secs': 0, 'nsecs': 0},
+                'frame_id': 'map'
             },
-            'poses': [
-                {
-                    'header': {
-                        'frame_id': "'''map'''",
-                        'seq': 0,
-                        'stamp': {'nsecs': 0, 'secs': 0}
-                    },
-                    'pose': {
-                        'orientation': {'w': 0.0, 'x': 0.0, 'y': 0.0, 'z': 0.0},
-                        'position': {'x': values[0], 'y': values[1], 'z': values[2]}
-                    }
-                }
-            ]
+            'pose': {
+                'position': {'x': values[0], 'y': values[1], 'z': values[2]},
+                'orientation': {'x': values[3], 'y': values[4], 'z': values[5], 'w': values[6]}
+            }
         }
         waypoints.append(waypoint)
 
-    yaml_data = yaml.dump(waypoints, default_flow_style=False)
+    yaml_data = yaml.dump({'header': {'seq': 1, 'stamp': {'secs': 0, 'nsecs': 0}, 'frame_id': 'map'}, 'poses': waypoints},
+                          default_flow_style=False)
 
     with open(output_file, 'w') as f:
         f.write(yaml_data)
-
 
 if __name__ == "__main__":
     #input_file = "waypoints.txt"
