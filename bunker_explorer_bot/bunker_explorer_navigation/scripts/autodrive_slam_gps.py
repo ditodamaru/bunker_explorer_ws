@@ -40,11 +40,11 @@ class TerminalLauncher(QtWidgets.QWidget):
             "Terminal [Launch Converter Navgoal Node]",
             "Terminal [Launch Look-ahead Tracking Node]",
             "Terminal [Launch Publish Path Node]",
-            #"Terminal [Launch Outdoor Waypoint Localization]",
-            #"Terminal [Launch Joystick Collect GPS]",
-            #"Terminal [Launch Send Goals Node]",
-            #"Terminal [Launch Plot GPS data Node]",
-            #"Terminal [Launch Joystick Node]"
+            "Terminal [Launch Outdoor Waypoint Localization]",
+            "Terminal [Launch Joystick Collect GPS]",
+            "Terminal [Launch Send Goals Node]",
+            "Terminal [Launch Plot GPS data Node]",
+            "Terminal [Launch Joystick Node]"
         ]
 
         self.start_buttons = []
@@ -93,11 +93,11 @@ class TerminalLauncher(QtWidgets.QWidget):
             "roslaunch bunker_explorer_waypoint converter_navgoal.launch",
             "roslaunch tracking_pid test_tracking_pid_bunker.test rviz:=false",
             "roslaunch tracking_pid test_publishing_path.test",
-            #"roslaunch outdoor_waypoint_nav outdoor_waypoint_nav_bunker.launch", #"roslaunch bunker_explorer_navigation move_base_default.launch", 
-            #"roslaunch outdoor_waypoint_nav joy_launch_control_ucom.launch",
-            #"roslaunch outdoor_waypoint_nav send_goals.launch",
-            #"roslaunch outdoor_waypoint_nav plot_gps_data_ucom.launch",
-            #"roslaunch teleop_twist_joy teleop.launch"
+            "roslaunch outdoor_waypoint_nav outdoor_waypoint_nav_bunker.launch", #"roslaunch bunker_explorer_navigation move_base_default.launch", 
+            "roslaunch outdoor_waypoint_nav joy_launch_control_ucom.launch",
+            "roslaunch outdoor_waypoint_nav send_goals.launch",
+            "roslaunch outdoor_waypoint_nav plot_gps_data_ucom.launch",
+            "roslaunch teleop_twist_joy teleop.launch"
 
         ] 
 

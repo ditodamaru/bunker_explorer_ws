@@ -22,7 +22,7 @@
     <!-- Test path -->
     <!-- <node name="publish_path" pkg="rostopic" type="rostopic" args="pub -latch /path nav_msgs/Path -file=$(find tracking_pid)/trajectories/waypoint_20230829_1828.yaml"/> --> 
     <!-- <node name="publish_path" pkg="rostopic" type="rostopic" args="pub -latch /path nav_msgs/Path -file=$(find tracking_pid)/trajectories/path_12dec2.yaml"/> -->
-    <node name="publish_path" pkg="rostopic" type="rostopic" args="pub --latch /path nav_msgs/Path --file=$(find tracking_pid)/trajectories/path_12dec.yaml"/> 
+    <node name="publish_path" pkg="rostopic" type="rostopic" args="pub --latch /path nav_msgs/Path --file=$(find tracking_pid)/trajectories/waypoint_conv.yaml"/> 
     <node pkg="tf" type="static_transform_publisher" args=" 0 0 0 0 0 0 map path_frame 100" name="path_frame_tfpub"/>
 
     <!-- Rviz -->
