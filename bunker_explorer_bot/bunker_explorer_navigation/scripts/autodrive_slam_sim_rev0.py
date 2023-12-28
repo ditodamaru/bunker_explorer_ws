@@ -8,13 +8,10 @@ class TerminalLauncher(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        self.processes = [] # Store subprocess.Popen objects
-
         self.setupUi()
 
-
     def setupUi(self):
-        self.setWindowTitle("AutoDriving Visual SLAM Sim")      
+        self.setWindowTitle("AutoDriving Visual SLAM Sim")
 
         layout = QtWidgets.QVBoxLayout(self)
 
@@ -52,32 +49,13 @@ class TerminalLauncher(QtWidgets.QWidget):
         ] 
 
         self.start_buttons = []
-        self.stop_buttons = []
 
         for label in self.labels:
-            # Create a horizontal layout for each terminal entry
-            h_layout = QtWidgets.QHBoxLayout()
-
-            label_widget = QtWidgets.QLabel(label)
-            h_layout.addWidget(label_widget)
-
+            layout.addWidget(QtWidgets.QLabel(label))
             start_button = QtWidgets.QPushButton("Start Terminal")
-            h_layout.addWidget(start_button)
-
-            stop_button = QtWidgets.QPushButton("Stop Terminal")
-            stop_button.setEnabled(False)  #Disable initially
-            layout.addWidget(stop_button)
-
-            #Connect signals for both start and stop buttons
-            start_button.clicked.connect(lambda _, idx=len(self.labels): self.startTerminal(idx, stop_button))
-            stop_button.clicked.connect(lambda _, processess=self.processes, stop_button=stop_button: self.stopTerminal(processess[-1] if processess else None, stop_button))
-
             self.start_buttons.append(start_button)
-            self.stop_buttons.append(stop_button)
-
-            # Add the horizontal layout to the main vertical layout
-            layout.addLayout(h_layout)
-            
+            start_button.clicked.connect(lambda _, idx=len(self.start_buttons)-1: self.startTerminal(idx))
+            layout.addWidget(start_button)
 
         self.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.keyPressEvent = self.customKeyPressEvent
@@ -87,13 +65,9 @@ class TerminalLauncher(QtWidgets.QWidget):
             focused_button = self.focusWidget()
             if focused_button in self.start_buttons:
                 index = self.start_buttons.index(focused_button)
-                self.startTerminal(index, self.stop_buttons[index])
-            elif focused_button in self.stop_buttons:
-                index = self.stop_buttons.index(focused_button)
-                process = self.processes(index)
-                self.stopTerminal(process, self.stop_buttons[index])
+                self.startTerminal(index)
 
-    def startTerminal(self, index, stop_button):
+    def startTerminal(self, index):
         commands = [
             #"source ~/.bashrc",
             #"rosrun bunker_bringup bringup_can2usb.bash",
@@ -164,16 +138,10 @@ class TerminalLauncher(QtWidgets.QWidget):
             try:
                 #subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command])
                 print("Executing command:", command)
-                process = subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command])
-                self.processes.append(process)
-                stop_button.setEnabled(True)  #Enable the stop button
+                subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command])
 
             except Exception as e:
-                print(f"Error: {e}")
-
-    def stopTerminal(self, process, stop_button):
-        process.terminate()
-        stop_button.setEnabled(False)  # Disable the stop button
+                print(f"Error: {e}")            
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

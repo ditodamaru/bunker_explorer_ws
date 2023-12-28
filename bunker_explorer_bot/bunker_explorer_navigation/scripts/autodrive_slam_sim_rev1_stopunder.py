@@ -55,29 +55,23 @@ class TerminalLauncher(QtWidgets.QWidget):
         self.stop_buttons = []
 
         for label in self.labels:
-            # Create a horizontal layout for each terminal entry
-            h_layout = QtWidgets.QHBoxLayout()
-
             label_widget = QtWidgets.QLabel(label)
-            h_layout.addWidget(label_widget)
+            layout.addWidget(label_widget)
 
             start_button = QtWidgets.QPushButton("Start Terminal")
-            h_layout.addWidget(start_button)
+            layout.addWidget(start_button)
 
             stop_button = QtWidgets.QPushButton("Stop Terminal")
+            #start_button.clicked.connect(lambda _, idx=len(self.start_buttons)-1: self.startTerminal(idx))
             stop_button.setEnabled(False)  #Disable initially
             layout.addWidget(stop_button)
 
-            #Connect signals for both start and stop buttons
             start_button.clicked.connect(lambda _, idx=len(self.labels): self.startTerminal(idx, stop_button))
+            #stop_button.clicked.connect(lambda _, process=self.processes[-1], stop_button=stop_button: self.stopTerminal(process, stop_button))
             stop_button.clicked.connect(lambda _, processess=self.processes, stop_button=stop_button: self.stopTerminal(processess[-1] if processess else None, stop_button))
 
             self.start_buttons.append(start_button)
             self.stop_buttons.append(stop_button)
-
-            # Add the horizontal layout to the main vertical layout
-            layout.addLayout(h_layout)
-            
 
         self.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.keyPressEvent = self.customKeyPressEvent
