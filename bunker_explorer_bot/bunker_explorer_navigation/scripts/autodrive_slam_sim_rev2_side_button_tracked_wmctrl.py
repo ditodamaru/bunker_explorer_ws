@@ -68,8 +68,7 @@ class TerminalLauncher(QtWidgets.QWidget):
             h_layout.addWidget(start_button)
 
             stop_button = QtWidgets.QPushButton("Stop Terminal")
-            #stop_button.setEnabled(False)  #Disable initially
-            stop_button.setEnabled(True)  #Enable the stop button
+            stop_button.setEnabled(False)  #Disable initially
             h_layout.addWidget(stop_button)
 
             #Connect signals for both start and stop buttons
@@ -195,19 +194,48 @@ class TerminalLauncher(QtWidgets.QWidget):
             except Exception as e:
                 print(f"Error: {e}")
 
+                
+    # # Method 4
+    # def stopTerminal(self, index, stop_button):
+    #     #process = self.process_dict.get(index)
+    #     pid = self.process_dict.get(index)
+
+    #     if pid:
+    #         try:
+    #             os.kill(pid, signal.SIGINT)
+    #             os.waitpid(pid, 0)
+    #             print("PID number closed:", pid)
+    #             stdout, stderr = (pid, communicate())
+    #         except ProcessLookupError:
+    #             print("Proces not found.")
+    #         except Exception as e:
+    #             print(f"Errror stopping process: {e}")
+    #     else:
+    #         print("Process is not running")
+
+    #     # Now close the associated gnome-terminal window
+    #     # try:
+    #     #     windows_title = f"Terminal [index={index}]"
+    #     #     subprocess.run(["wmctrl", "-c", windows_title])
+    #     #     time.sleep(1) # Add delay to ensure the terminal is closed before further actions
+    #     # except Exception as e:
+    #     #     print(f"Error closing terminal window: {e}") 
+
+    #     stop_button.setEnabled(False)  # Disable the stop button
+                
     # Method 6
     def stopTerminal(self, index, stop_button):
         pid = self.process_dict.get(index)
 
         if pid:
             try:
+                # Send SIGINT to the entire process group
                 os.killpg(os.getpgid(pid), signal.SIGINT)
                 os.waitpid(pid, 0)
-                print("PID number closed:", pid)
+                print("Process with PID", pid, "terminated successfully.")
+
             except ProcessLookupError:
                 print("Process not found.")
-            except KeyboardInterrupt:
-                print("Keyboard interrupt received. Ignoring.")
             except Exception as e:
                 print(f"Error stopping process: {e}")
         else:
