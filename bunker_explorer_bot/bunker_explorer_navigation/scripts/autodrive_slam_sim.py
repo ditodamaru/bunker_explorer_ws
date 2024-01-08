@@ -75,7 +75,11 @@ class TerminalLauncher(QtWidgets.QWidget):
             #Connect signals for both start and stop buttons
             start_button.clicked.connect(lambda _, idx=index: self.startTerminal(idx, stop_button))
             #stop_button.clicked.connect(lambda _, processess=self.processes, stop_button=stop_button: self.stopTerminal(processess[-1] if processess else None, stop_button))
-            stop_button.clicked.connect(lambda _, index=len(self.labels)-1, stop_button=stop_button: self.stopTerminal(index, stop_button))
+            #stop_button.clicked.connect(lambda _, index=len(self.labels)-1, stop_button=stop_button: self.stopTerminal(index, stop_button))
+            stop_button.clicked.connect(lambda _, idx=index, stop_button=stop_button:  self.stopTerminal(idx, stop_button))
+            
+            print(f"Stop button for index {index} connected.")
+
 
             #self.start_buttons.append(start_button)
             #self.stop_buttons.append(stop_button)
@@ -103,6 +107,7 @@ class TerminalLauncher(QtWidgets.QWidget):
     #    return custom_arguments if ok else None
 
     def startTerminal(self, index, stop_button):
+        print(f"Start button clicked for index: {index}")
         commands = [
             #"source ~/.bashrc",
             #"rosrun bunker_bringup bringup_can2usb.bash",
@@ -197,6 +202,7 @@ class TerminalLauncher(QtWidgets.QWidget):
 
     # Method 6
     def stopTerminal(self, index, stop_button):
+        print(f"Stop button clicked for index: {index}")    
         pid = self.process_dict.get(index)
 
         if pid:
@@ -225,7 +231,7 @@ class TerminalLauncher(QtWidgets.QWidget):
         except Exception as e:
             print(f"Error closing terminal window: {e}")
 
-        stop_button.setEnabled(False)  # Disable the stop button
+        #stop_button.setEnabled(False)  # Disable the stop button
 
 
 
