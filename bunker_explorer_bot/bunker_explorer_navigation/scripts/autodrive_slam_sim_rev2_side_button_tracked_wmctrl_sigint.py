@@ -68,8 +68,7 @@ class TerminalLauncher(QtWidgets.QWidget):
             h_layout.addWidget(start_button)
 
             stop_button = QtWidgets.QPushButton("Stop Terminal")
-            #stop_button.setEnabled(False)  #Disable initially
-            stop_button.setEnabled(True)  #Enable the stop button
+            stop_button.setEnabled(False)  #Disable initially
             h_layout.addWidget(stop_button)
 
             #Connect signals for both start and stop buttons

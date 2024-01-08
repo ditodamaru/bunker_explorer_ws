@@ -2,7 +2,6 @@ import sys
 import os
 import signal
 import subprocess
-import time
 from PyQt5 import QtWidgets, QtGui, QtCore
 
 class TerminalLauncher(QtWidgets.QWidget):
@@ -68,8 +67,7 @@ class TerminalLauncher(QtWidgets.QWidget):
             h_layout.addWidget(start_button)
 
             stop_button = QtWidgets.QPushButton("Stop Terminal")
-            #stop_button.setEnabled(False)  #Disable initially
-            stop_button.setEnabled(True)  #Enable the stop button
+            stop_button.setEnabled(False)  #Disable initially
             h_layout.addWidget(stop_button)
 
             #Connect signals for both start and stop buttons
@@ -179,13 +177,28 @@ class TerminalLauncher(QtWidgets.QWidget):
                 #process = subprocess.Popen(["gnome-terminal", "--", "bash", "-c", f"{command} && echo $!"]) # capturing using echo
                 #process = subprocess.Popen(["gnome-terminal", "--", "bash", "-c", f"{command}"], stdout=subprocess.PIPE) # capturing using stdout
                 process = subprocess.Popen(["gnome-terminal", "--disable-factory", "--", "bash", "-c", f"{command}"], stdout=subprocess.PIPE) #closed when gives stop signal
-                #process = subprocess.Popen(["gnome-terminal", "--disable-factory", "--", "bash", "-c", f"{command}"], stdout=subprocess.PIPE) #closed when gives stop signal
-                #process = subprocess.Popen(["gnome-terminal", "--disable-factory", "--", "bash", "-c", f"{command}"])
- 
+     
                 #process.wait(timeout=1) #Wait for the process to finish to capturing the PID
                 pid = process.pid
 
+                # output = process.communicate()[0]
+                # if output:
+                #     pid = int(output)
+                #     self.process_dict[index] = pid
+                #     stop_button.setEnabled(True)  #Enable stop button
+                #     print("PID number:", pid)  
+                # else:
+                #     print("Error: Failed to retrieve PID.") 
+
                 print("PID number:", pid)
+                #process = subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command])
+                
+                # open terminal using shell
+                #process = subprocess.Popen(command, shell=True)
+                #self.processes.append(process)
+                
+                #method for capturing process
+                #self.process_dict[index] = process
 
                 #method 2 based on pid process capturing
                 self.process_dict[index] = pid
@@ -195,38 +208,90 @@ class TerminalLauncher(QtWidgets.QWidget):
             except Exception as e:
                 print(f"Error: {e}")
 
-    # Method 6
+    # def stopTerminal(self, index, stop_button):
+    #     #process.terminate()
+    #     #stop_button.setEnabled(False)  # Disable the stop button
+
+    #     #updated stop terminal function
+    #     process = self.process_dict.get(index)
+        
+    #     #original code block
+    #     # if process and process.poll() is None:
+    #     #     # if the process exists and still running
+    #     #     try:
+    #     #         process.terminate()
+    #     #         #process.wait(timeout=2)
+    #     #         process.wait(timeout=3) #Wait for the process to finish
+    #     #     #except Exception as e:
+    #     #     #    print(f"error stopping process: {e}")
+    #     #     except subprocess.TimeoutExpired:
+    #     #         print("Process did not terminate in time. Forcing termination...")
+    #     #         process.kill()
+    #     #         process.wait()
+    #     #     except Exception as e:
+    #     #         print(f"Error stopping process: {e}")
+    #     # else:
+    #     #     print("Process is not running")
+
+    #     # For debugging
+    #     if process:
+    #         try:
+    #             print(f"Stopping process with index {index} (PID: {process.pid})")
+    #             process.terminate()
+    #             process.wait(timeout=3)  # Wait for the process to finish
+    #             print(f"Process with index {index} terminated successfully.")
+    #         except subprocess.TimeoutExpired:
+    #             print(f"Process with index {index} did not terminate in time. Forcing termination...")
+    #             process.kill()
+    #             process.wait()
+    #             print(f"Forced termination of process with index {index}.")
+    #         except Exception as e:
+    #             print(f"Error stopping process: {e}")
+    #     else:
+    #         print(f"Process with index {index} is not running")
+
+    #     stop_button.setEnabled(False) # Disable the stop button
+
+    # # Method 2 for stop the terminal             
+    # def stopTerminal(self, index, stop_button):
+    #     # updated stop terminal function
+    #     process_info = self.process_dict.get(index)
+
+    #     if process_info and isinstance(process_info, dict):
+    #         pid = process_info.get("pid")
+
+    #         if pid:
+    #             try:
+    #                 os.kill(pid, signal.SIGTERM)
+    #                 _, exit_code = os.waitpid(pid, 0)
+    #                 print(f"Process with index {index} terminated successfully with exit code {exit_code}")
+    #             except Exception as e:
+    #                 print(f"Error stopping process: {e}")
+    #         else:
+    #             print("PID is not available")
+    #     else:
+    #         print("Process info is not available or not a dictionary")
+
+    #     stop_button.setEnabled(False)  # Disable the stop button
+
+
+    # Method 3 for stopping the terminal
     def stopTerminal(self, index, stop_button):
         pid = self.process_dict.get(index)
 
         if pid:
             try:
-                os.killpg(os.getpgid(pid), signal.SIGINT)
-                os.waitpid(pid, 0)
-                print("PID number closed:", pid)
-            except ProcessLookupError:
-                print("Process not found.")
-            except KeyboardInterrupt:
-                print("Keyboard interrupt received. Ignoring.")
+                os.kill(pid, signal.SIGTERM)  # Terminate the process gracefully
+                # You can also use os.kill(pid, signal.SIGKILL) for forceful termination
+
+                print(f"Stopping process with index {index} (PID: {pid})")
+                print(f"Process with index {index} terminated successfully.")
             except Exception as e:
                 print(f"Error stopping process: {e}")
         else:
-            print("Process is not running")
-
-        # Now close the associated gnome-terminal window using pkill
-        try:
-            subprocess.run(["pkill", "-P", str(pid)])
-            subprocess.run(["pkill", "-TERM", "-P", str(pid)])
-            subprocess.run(["pkill", "-P", str(pid)])
-            subprocess.run(["pkill", "-TERM", str(pid)])
-            subprocess.run(["pkill", "-KILL", str(pid)])
-            time.sleep(1)
-            print("Gnome-terminal window associated with PID", pid, "closed.")
-        except Exception as e:
-            print(f"Error closing terminal window: {e}")
+            print("PID is not available for the process")
 
         stop_button.setEnabled(False)  # Disable the stop button
-
 
 
 if __name__ == '__main__':

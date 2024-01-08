@@ -2,16 +2,13 @@ import sys
 import os
 import signal
 import subprocess
-import time
 from PyQt5 import QtWidgets, QtGui, QtCore
 
 class TerminalLauncher(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        #self.processes = [] # Store subprocess.Popen objects
-        #change the method
-        self.process_dict = {} #Store subprocess.Popen objects
+        self.processes = [] # Store subprocess.Popen objects
 
         self.setupUi()
 
@@ -57,32 +54,24 @@ class TerminalLauncher(QtWidgets.QWidget):
         self.start_buttons = []
         self.stop_buttons = []
 
-        for index, label in enumerate(self.labels):
-            # Create a horizontal layout for each terminal entry
-            h_layout = QtWidgets.QHBoxLayout()
-
+        for label in self.labels:
             label_widget = QtWidgets.QLabel(label)
-            h_layout.addWidget(label_widget)
+            layout.addWidget(label_widget)
 
             start_button = QtWidgets.QPushButton("Start Terminal")
-            h_layout.addWidget(start_button)
+            layout.addWidget(start_button)
 
             stop_button = QtWidgets.QPushButton("Stop Terminal")
-            #stop_button.setEnabled(False)  #Disable initially
-            stop_button.setEnabled(True)  #Enable the stop button
-            h_layout.addWidget(stop_button)
+            #start_button.clicked.connect(lambda _, idx=len(self.start_buttons)-1: self.startTerminal(idx))
+            stop_button.setEnabled(False)  #Disable initially
+            layout.addWidget(stop_button)
 
-            #Connect signals for both start and stop buttons
-            start_button.clicked.connect(lambda _, idx=index: self.startTerminal(idx, stop_button))
-            #stop_button.clicked.connect(lambda _, processess=self.processes, stop_button=stop_button: self.stopTerminal(processess[-1] if processess else None, stop_button))
-            stop_button.clicked.connect(lambda _, index=len(self.labels)-1, stop_button=stop_button: self.stopTerminal(index, stop_button))
+            start_button.clicked.connect(lambda _, idx=len(self.labels): self.startTerminal(idx, stop_button))
+            #stop_button.clicked.connect(lambda _, process=self.processes[-1], stop_button=stop_button: self.stopTerminal(process, stop_button))
+            stop_button.clicked.connect(lambda _, processess=self.processes, stop_button=stop_button: self.stopTerminal(processess[-1] if processess else None, stop_button))
 
-            #self.start_buttons.append(start_button)
-            #self.stop_buttons.append(stop_button)
-
-            # Add the horizontal layout to the main vertical layout
-            layout.addLayout(h_layout)
-            
+            self.start_buttons.append(start_button)
+            self.stop_buttons.append(stop_button)
 
         self.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.keyPressEvent = self.customKeyPressEvent
@@ -97,10 +86,6 @@ class TerminalLauncher(QtWidgets.QWidget):
                 index = self.stop_buttons.index(focused_button)
                 process = self.processes(index)
                 self.stopTerminal(process, self.stop_buttons[index])
-
-    #def getCustomArguments(self):
-    #    custom_arguments, ok = QtWidgets.QInputDialog.getText(self, "Custom arguments", "Enter custom arguments:")
-    #    return custom_arguments if ok else None
 
     def startTerminal(self, index, stop_button):
         commands = [
@@ -173,61 +158,16 @@ class TerminalLauncher(QtWidgets.QWidget):
             try:
                 #subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command])
                 print("Executing command:", command)
-                #open terminal using gnome
-                #pid = os.system(f"gnome-terminal -- bash -c '{command}'; echo $!")
-                
-                #process = subprocess.Popen(["gnome-terminal", "--", "bash", "-c", f"{command} && echo $!"]) # capturing using echo
-                #process = subprocess.Popen(["gnome-terminal", "--", "bash", "-c", f"{command}"], stdout=subprocess.PIPE) # capturing using stdout
-                process = subprocess.Popen(["gnome-terminal", "--disable-factory", "--", "bash", "-c", f"{command}"], stdout=subprocess.PIPE) #closed when gives stop signal
-                #process = subprocess.Popen(["gnome-terminal", "--disable-factory", "--", "bash", "-c", f"{command}"], stdout=subprocess.PIPE) #closed when gives stop signal
-                #process = subprocess.Popen(["gnome-terminal", "--disable-factory", "--", "bash", "-c", f"{command}"])
- 
-                #process.wait(timeout=1) #Wait for the process to finish to capturing the PID
-                pid = process.pid
-
-                print("PID number:", pid)
-
-                #method 2 based on pid process capturing
-                self.process_dict[index] = pid
-
+                process = subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command])
+                self.processes.append(process)
                 stop_button.setEnabled(True)  #Enable the stop button
 
             except Exception as e:
                 print(f"Error: {e}")
 
-    # Method 6
-    def stopTerminal(self, index, stop_button):
-        pid = self.process_dict.get(index)
-
-        if pid:
-            try:
-                os.killpg(os.getpgid(pid), signal.SIGINT)
-                os.waitpid(pid, 0)
-                print("PID number closed:", pid)
-            except ProcessLookupError:
-                print("Process not found.")
-            except KeyboardInterrupt:
-                print("Keyboard interrupt received. Ignoring.")
-            except Exception as e:
-                print(f"Error stopping process: {e}")
-        else:
-            print("Process is not running")
-
-        # Now close the associated gnome-terminal window using pkill
-        try:
-            subprocess.run(["pkill", "-P", str(pid)])
-            subprocess.run(["pkill", "-TERM", "-P", str(pid)])
-            subprocess.run(["pkill", "-P", str(pid)])
-            subprocess.run(["pkill", "-TERM", str(pid)])
-            subprocess.run(["pkill", "-KILL", str(pid)])
-            time.sleep(1)
-            print("Gnome-terminal window associated with PID", pid, "closed.")
-        except Exception as e:
-            print(f"Error closing terminal window: {e}")
-
+    def stopTerminal(self, process, stop_button):
+        process.terminate()
         stop_button.setEnabled(False)  # Disable the stop button
-
-
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
