@@ -1,0 +1,2254 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='Tree 2 0.7'>
+      <static>1</static>
+      <pose frame=''>1.99998 1.51411 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 2 0.7_1'>
+      <static>1</static>
+      <pose frame=''>1.9895 7.48392 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 2 0.7_3'>
+      <static>1</static>
+      <pose frame=''>5.98881 1.45892 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 2 0.7_4'>
+      <static>1</static>
+      <pose frame=''>3.98632 4.46966 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 2 0.7_6'>
+      <static>1</static>
+      <pose frame=''>3.98403 7.45619 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 2 0.7_7'>
+      <static>1</static>
+      <pose frame=''>5.98021 7.48336 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <state world_name='default'>
+      <sim_time>1031 507000000</sim_time>
+      <real_time>464 370074244</real_time>
+      <wall_time>1704682252 54004756</wall_time>
+      <iterations>83512</iterations>
+      <model name='Tree 1'>
+        <pose frame=''>6.07262 4.5136 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>6.07262 4.5136 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 1_0'>
+        <pose frame=''>7.98936 1.48985 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>7.98936 1.48985 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 2 0.7'>
+        <pose frame=''>1.99998 1.51411 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>1.99998 1.51411 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 2 0.7_0'>
+        <pose frame=''>7.98588 4.41638 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>7.98588 4.41638 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 2 0.7_1'>
+        <pose frame=''>1.9895 7.48392 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>1.9895 7.48392 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 2 0.7_3'>
+        <pose frame=''>5.98881 1.45892 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>5.98881 1.45892 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 2 0.7_4'>
+        <pose frame=''>3.98632 4.46966 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>3.98632 4.46966 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 2 0.7_6'>
+        <pose frame=''>3.98403 7.45619 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>3.98403 7.45619 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 2 0.7_7'>
+        <pose frame=''>5.98021 7.48336 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>5.98021 7.48336 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 4'>
+        <pose frame=''>3.98331 1.45791 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>3.98331 1.45791 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 4_0'>
+        <pose frame=''>7.97574 7.52063 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>7.97574 7.52063 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Tree 5'>
+        <pose frame=''>2.04326 4.51903 0 1.57079 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>2.04326 4.51903 0 1.57079 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='bunker'>
+        <pose frame=''>-4.3e-05 0.000243 0.367667 -0.000739 -0.000145 -1.5e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='robot_base'>
+          <pose frame=''>-4.3e-05 0.000243 0.367667 -0.000739 -0.000145 -1.5e-05</pose>
+          <velocity>-1e-06 5e-06 0.010098 -1.5e-05 -4e-06 0</velocity>
+          <acceleration>-0.000803 0.003457 10.0976 -0.014717 -0.003843 -0.000293</acceleration>
+          <wrench>-0 0 0.00101 0 -0 0</wrench>
+        </link>
+        <link name='wheel1.1_Link'>
+          <pose frame=''>0.375504 0.349573 0.144413 1.57154 0 3.14158</pose>
+          <velocity>-0 2e-06 0.010159 -1.6e-05 0 0</velocity>
+          <acceleration>-0.000283 0.00154 10.1603 -0.015665 3e-06 -0.000503</acceleration>
+          <wrench>-0 0 0.001016 0 -0 0</wrench>
+        </link>
+        <link name='wheel1.2_Link'>
+          <pose frame=''>0.290393 0.349531 0.086411 1.57154 0.000252 3.14158</pose>
+          <velocity>-0 1e-06 0.010185 -1.5e-05 0 0</velocity>
+          <acceleration>-6e-05 0.000735 10.1862 -0.014593 1e-06 -0.000545</acceleration>
+          <wrench>-0 0 0.001019 0 -0 0</wrench>
+        </link>
+        <link name='wheel1.3_Link'>
+          <pose frame=''>0.296004 0.349674 0.280452 1.57154 2.3e-05 3.14158</pose>
+          <velocity>-1e-06 4e-06 0.010161 -1.4e-05 -0 -0</velocity>
+          <acceleration>-0.000804 0.003604 10.1621 -0.013753 -0.000237 -0.000486</acceleration>
+          <wrench>-0 0 0.001016 0 -0 0</wrench>
+        </link>
+        <link name='wheel1_Link'>
+          <pose frame=''>0.44401 0.349642 0.238943 1.57154 0 3.14158</pose>
+          <velocity>-1e-06 3e-06 0.01009 -1.4e-05 0 0</velocity>
+          <acceleration>-0.000646 0.002962 10.0906 -0.014255 -0 -0.000552</acceleration>
+          <wrench>-0 0 0.001009 0 -0 0</wrench>
+        </link>
+        <link name='wheel2.1_Link'>
+          <pose frame=''>0.375494 -0.349427 0.14493 1.57154 0 3.14158</pose>
+          <velocity>-0 2e-06 0.009989 -1.8e-05 -0 -0</velocity>
+          <acceleration>-0.000445 0.001603 9.98795 -0.018077 -3e-06 -0.000503</acceleration>
+          <wrench>-0 0 0.000999 0 -0 0</wrench>
+        </link>
+        <link name='wheel2.2_Link'>
+          <pose frame=''>0.290382 -0.349469 0.086929 1.57154 0.000151 3.14158</pose>
+          <velocity>-0 1e-06 0.009853 -1.6e-05 -0 -0</velocity>
+          <acceleration>-0.00022 0.000777 9.85146 -0.016051 -1e-06 -0.000545</acceleration>
+          <wrench>-0 0 0.000985 0 -0 0</wrench>
+        </link>
+        <link name='wheel2.3_Link'>
+          <pose frame=''>0.295994 -0.349325 0.28097 1.57154 2.4e-05 3.14158</pose>
+          <velocity>-1e-06 4e-06 0.00971 -1.7e-05 -0 -0</velocity>
+          <acceleration>-0.000964 0.003628 9.70872 -0.016841 -0.000243 -0.000486</acceleration>
+          <wrench>-0 0 0.000971 0 -0 0</wrench>
+        </link>
+        <link name='wheel2_Link'>
+          <pose frame=''>0.444 -0.349358 0.239462 1.57154 0 3.14158</pose>
+          <velocity>-1e-06 3e-06 0.009579 -1.5e-05 -0 -0</velocity>
+          <acceleration>-0.000807 0.002975 9.57797 -0.015187 0 -0.000552</acceleration>
+          <wrench>-0 0 0.000958 0 -0 0</wrench>
+        </link>
+        <link name='wheel3.1_Link'>
+          <pose frame=''>-0.231108 0.349542 0.090667 1.57154 -7.5e-05 3.14158</pose>
+          <velocity>-0 1e-06 0.009465 -1.4e-05 0 0</velocity>
+          <acceleration>-7.9e-05 0.000988 9.46557 -0.014043 1e-06 -0.000544</acceleration>
+          <wrench>-0 0 0.000947 0 -0 0</wrench>
+        </link>
+        <link name='wheel3.2_Link'>
+          <pose frame=''>0.043887 0.349538 0.090708 1.57154 -9.3e-05 3.14158</pose>
+          <velocity>-0 1e-06 0.009407 -1.5e-05 0 0</velocity>
+          <acceleration>-8.1e-05 0.000914 9.40788 -0.014513 1e-06 -0.000545</acceleration>
+          <wrench>-0 0 0.000941 0 -0 0</wrench>
+        </link>
+        <link name='wheel3.3_Link'>
+          <pose frame=''>-0.285996 0.349683 0.28037 1.57154 0 3.14158</pose>
+          <velocity>-1e-06 4e-06 0.009398 -1.5e-05 0 0</velocity>
+          <acceleration>-0.000812 0.003806 9.39886 -0.015211 2e-06 -0.000484</acceleration>
+          <wrench>-0 0 0.00094 0 -0 0</wrench>
+        </link>
+        <link name='wheel3_Link'>
+          <pose frame=''>-0.388721 0.295106 0.173585 1.57154 0 3.14158</pose>
+          <velocity>-0 2e-06 0.009443 -1.5e-05 0 0</velocity>
+          <acceleration>-0.000413 0.002283 9.44337 -0.014717 -0 -0.00039</acceleration>
+          <wrench>-0 0 0.000944 0 -0 0</wrench>
+        </link>
+        <link name='wheel4.1_Link'>
+          <pose frame=''>-0.231118 -0.349458 0.091184 1.57154 -0.000101 3.14158</pose>
+          <velocity>-0 1e-06 0.009544 -1.4e-05 -0 -0</velocity>
+          <acceleration>-0.000263 0.001044 9.54294 -0.01358 -1e-06 -0.000544</acceleration>
+          <wrench>-0 0 0.000954 0 -0 0</wrench>
+        </link>
+        <link name='wheel4.2_Link'>
+          <pose frame=''>0.043877 -0.349462 0.091223 1.57154 -0.001464 3.14157</pose>
+          <velocity>-0 1e-06 0.00967 -1.3e-05 -0 -0</velocity>
+          <acceleration>-0.000268 0.000987 9.66928 -0.013384 -1e-06 -0.000545</acceleration>
+          <wrench>-0 0 0.000967 0 -0 0</wrench>
+        </link>
+        <link name='wheel4.3_Link'>
+          <pose frame=''>-0.286006 -0.349317 0.280885 1.57154 0 3.14158</pose>
+          <velocity>-1e-06 4e-06 0.009811 -1.2e-05 -0 -0</velocity>
+          <acceleration>-0.001 0.003898 9.81058 -0.012482 -2e-06 -0.000484</acceleration>
+          <wrench>-0 0 0.000981 0 -0 0</wrench>
+        </link>
+        <link name='wheel4_Link'>
+          <pose frame=''>-0.388729 -0.294894 0.174019 1.57154 0 3.14158</pose>
+          <velocity>-1e-06 2e-06 0.009951 -1.5e-05 0 0</velocity>
+          <acceleration>-0.000594 0.002381 9.95109 -0.014681 0 -0.00039</acceleration>
+          <wrench>-0 0 0.000995 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane_0'>
+        <pose frame=''>4.16184 -0.605472 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>4.16184 -0.605472 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='sand_heightmap'>
+        <pose frame=''>131.668 74.7638 0.01 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>131.668 74.7638 0.01 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>-0.611518 0.314011 0.89613 0 0.273739 0.195744</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name='Tree 1'>
+      <static>1</static>
+      <pose frame=''>6.07262 4.5136 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>1.2 1.2 1.2</scale>
+              <uri>model://tree_1/meshes/tree_1.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>1.2 1.2 1.2</scale>
+              <uri>model://tree_1/meshes/tree_1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 2 0.7_0'>
+      <static>1</static>
+      <pose frame=''>7.98588 4.41638 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.7 0.7 0.7</scale>
+              <uri>model://tree_2/meshes/tree_2.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 4'>
+      <static>1</static>
+      <pose frame=''>3.98331 1.45791 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.3 0.3 0.3</scale>
+              <uri>model://tree_4/meshes/tree_4.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.3 0.3 0.3</scale>
+              <uri>model://tree_4/meshes/tree_4.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 1_0'>
+      <static>1</static>
+      <pose frame=''>7.98936 1.48985 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>1.2 1.2 1.2</scale>
+              <uri>model://tree_1/meshes/tree_1.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>1.2 1.2 1.2</scale>
+              <uri>model://tree_1/meshes/tree_1.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 5'>
+      <static>1</static>
+      <pose frame=''>2.04326 4.51903 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://tree_5/meshes/tree.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://tree_5/meshes/tree.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Tree 4_0'>
+      <static>1</static>
+      <pose frame=''>7.97574 7.52063 0 1.57079 -0 0</pose>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>0.3 0.3 0.3</scale>
+              <uri>model://tree_4/meshes/tree_4.obj</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>0.3 0.3 0.3</scale>
+              <uri>model://tree_4/meshes/tree_4.obj</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='bunker'>
+      <link name='robot_base'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.021241 0.004755 -0.127581 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.607716</ixx>
+            <ixy>1.92178e-05</ixy>
+            <ixz>-0.0365321</ixz>
+            <iyy>1.70041</iyy>
+            <iyz>2.16963e-05</iyz>
+            <izz>1.84232</izz>
+          </inertia>
+        </inertial>
+        <collision name='robot_base_collision'>
+          <pose frame=''>0.53 -0.392 -0.358 1.57 0 3.14</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/BUNKER.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='robot_base_fixed_joint_lump__camera_link_collision_1'>
+          <pose frame=''>0.333 0 0.297 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.012 0.132 0.02</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='robot_base_visual'>
+          <pose frame=''>0.53 -0.392 -0.358 1.57 0 3.14</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/BUNKER.STL</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Gray</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__rbot_base2_visual_1'>
+          <pose frame=''>0.3 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.09 0.03</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__servo_bottom2_visual_2'>
+          <pose frame=''>0.3 0 0.14 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.25</length>
+              <radius>0.015</radius>
+            </cylinder>
+          </geometry>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__up_mount2_visual_3'>
+          <pose frame=''>0.3 0 0.29 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.148 0.05</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__camera_link_visual_4'>
+          <pose frame=''>0.33 -0.065 0.29 1.57 -0 1.57</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/sensors/r200.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__imu_link_visual_5'>
+          <pose frame=''>0.305 -0.08 0.295 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.02 0.02</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__rbot_base3_visual_6'>
+          <pose frame=''>-0.25 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.045 0.09 0.03</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__servo_bottom3_visual_7'>
+          <pose frame=''>-0.25 0 0.14 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.25</length>
+              <radius>0.015</radius>
+            </cylinder>
+          </geometry>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__up_mount3_visual_8'>
+          <pose frame=''>-0.25 0 0.29 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.148 0.05</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__gps_link_visual_9'>
+          <pose frame=''>-0.25 0 0.29 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.065</length>
+              <radius>0.075</radius>
+            </cylinder>
+          </geometry>
+        </visual>
+        <visual name='robot_base_fixed_joint_lump__imu_link2_visual_10'>
+          <pose frame=''>0 0 0.001 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.026 0.005</size>
+            </box>
+          </geometry>
+        </visual>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <sensor name='realsense_R200' type='depth'>
+          <always_on>1</always_on>
+          <visualize>0</visualize>
+          <camera name='__default__'>
+            <horizontal_fov>1.3439</horizontal_fov>
+            <image>
+              <width>1920</width>
+              <height>1080</height>
+              <format>R8G8B8</format>
+            </image>
+            <depth_camera>
+              <output>depths</output>
+            </depth_camera>
+            <clip>
+              <near>0.03</near>
+              <far>100</far>
+            </clip>
+          </camera>
+          <plugin name='camera_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>30.0</updateRate>
+            <cameraName>camera</cameraName>
+            <frameName>camera_rgb_optical_frame</frameName>
+            <imageTopicName>rgb/image_raw</imageTopicName>
+            <depthImageTopicName>depth/image_raw</depthImageTopicName>
+            <pointCloudTopicName>depth/points</pointCloudTopicName>
+            <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
+            <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudCutoff>0.4</pointCloudCutoff>
+            <hackBaseline>0.07</hackBaseline>
+            <distortionK1>0.0</distortionK1>
+            <distortionK2>0.0</distortionK2>
+            <distortionK3>0.0</distortionK3>
+            <distortionT1>0.0</distortionT1>
+            <distortionT2>0.0</distortionT2>
+            <CxPrime>0.0</CxPrime>
+            <Cx>0.0</Cx>
+            <Cy>0.0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose frame=''>0.335 -0.047 0.303 0 -0 0</pose>
+        </sensor>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='wheel1.1_Link'>
+        <pose frame=''>0.37551 0.3495 -0.22305 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>-0 0 -0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>6.58751e-05</ixx>
+            <ixy>-1.46559e-09</ixy>
+            <ixz>-8.34967e-12</ixz>
+            <iyy>6.58796e-05</iyy>
+            <iyz>-2.4786e-12</iyz>
+            <izz>0.000112722</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel1.1_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel1.1_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel1.1_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel1.1_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel1.1_jont' type='revolute'>
+        <child>wheel1.1_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>7e-06 1 -4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel1.2_Link'>
+        <pose frame=''>0.29039 0.3495 -0.28104 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 0 -0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000179574</ixx>
+            <ixy>1.15789e-20</ixy>
+            <ixz>1.35634e-21</ixz>
+            <iyy>0.000179574</iyy>
+            <iyz>6.03698e-23</iyz>
+            <izz>0.000332595</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel1.2_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel1.2_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel1.2_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel1.2_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel1.2_joint' type='revolute'>
+        <child>wheel1.2_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>7e-06 1 -4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel1.3_Link'>
+        <pose frame=''>0.29603 0.3495 -0.087 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>3.4e-05 -2.7e-05 -0.07015 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000105254</ixx>
+            <ixy>1.32328e-08</ixy>
+            <ixz>3.84295e-11</ixz>
+            <iyy>0.000105249</iyy>
+            <iyz>-1.41156e-11</iyz>
+            <izz>0.000173281</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel1.3_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel1.3_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel1.3_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel1.3_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel1.3_joint' type='revolute'>
+        <child>wheel1.3_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>-7e-06 -1 4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel1_Link'>
+        <pose frame=''>0.44403 0.3495 -0.12853 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 -0 -0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000378441</ixx>
+            <ixy>5.60823e-21</ixy>
+            <ixz>3.04208e-20</ixz>
+            <iyy>0.000378441</iyy>
+            <iyz>-7.56627e-21</iyz>
+            <izz>0.000710151</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel1_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel1_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel1_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel1_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel1_joint' type='revolute'>
+        <child>wheel1_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>7e-06 1 -4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel2.1_Link'>
+        <pose frame=''>0.37551 -0.3495 -0.22305 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>-0 0 0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>6.58751e-05</ixx>
+            <ixy>-1.46559e-09</ixy>
+            <ixz>-8.34967e-12</ixz>
+            <iyy>6.58796e-05</iyy>
+            <iyz>-2.4786e-12</iyz>
+            <izz>0.000112722</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel2.1_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel2.1_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel2.1_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel2.1_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel2.1_joint' type='revolute'>
+        <child>wheel2.1_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>-7e-06 -1 4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel2.2_Link'>
+        <pose frame=''>0.29039 -0.3495 -0.28104 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>-0 -0 0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000179574</ixx>
+            <ixy>6.2896e-21</ixy>
+            <ixz>2.14011e-21</ixz>
+            <iyy>0.000179574</iyy>
+            <iyz>1.2771e-22</iyz>
+            <izz>0.000332595</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel2.2_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel2.2_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel2.2_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel2.2_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel2.2_joint' type='revolute'>
+        <child>wheel2.2_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>-7e-06 -1 4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel2.3_Link'>
+        <pose frame=''>0.29603 -0.3495 -0.087 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>3.5e-05 -2.7e-05 0.070928 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000105035</ixx>
+            <ixy>1.32328e-08</ixy>
+            <ixz>3.84295e-11</ixz>
+            <iyy>0.00010503</iyy>
+            <iyz>-1.41156e-11</iyz>
+            <izz>0.000172982</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel2.3_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel2.3_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel2.3_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel2.3_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel2.3_joint' type='revolute'>
+        <child>wheel2.3_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>7e-06 1 -4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel2_Link'>
+        <pose frame=''>0.44403 -0.3495 -0.12853 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>-0 0 0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000378441</ixx>
+            <ixy>3.37302e-21</ixy>
+            <ixz>2.71827e-20</ixz>
+            <iyy>0.000378441</iyy>
+            <iyz>-7.32822e-21</iyz>
+            <izz>0.000710151</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel2_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel2_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel2_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel2_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel2_joint' type='revolute'>
+        <child>wheel2_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>-7e-06 -1 4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel3.1_Link'>
+        <pose frame=''>-0.23111 0.3495 -0.27671 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 0 -0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000179574</ixx>
+            <ixy>-1.73824e-20</ixy>
+            <ixz>-2.5316e-21</ixz>
+            <iyy>0.000179574</iyy>
+            <iyz>-3.13741e-21</iyz>
+            <izz>0.000332595</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel3.1_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel3.1_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel3.1_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel3.1_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel3.1_joint' type='revolute'>
+        <child>wheel3.1_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>7e-06 1 -4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel3.2_Link'>
+        <pose frame=''>0.043885 0.3495 -0.27671 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 0 -0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000179574</ixx>
+            <ixy>9.82929e-22</ixy>
+            <ixz>1.1099e-21</ixz>
+            <iyy>0.000179574</iyy>
+            <iyz>-4.81322e-21</iyz>
+            <izz>0.000332595</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel3.2_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel3.2_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel3.2_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel3.2_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel3.2_joint' type='revolute'>
+        <child>wheel3.2_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>7e-06 1 -4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel3.3_Link'>
+        <pose frame=''>-0.28597 0.3495 -0.087 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 -5.3e-05 -0.07015 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000105265</ixx>
+            <ixy>7.98232e-12</ixy>
+            <ixz>6.804e-11</ixz>
+            <iyy>0.000105238</iyy>
+            <iyz>-2.72106e-11</iyz>
+            <izz>0.000173281</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel3.3_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel3.3_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel3.3_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel3.3_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel3.3_joint' type='revolute'>
+        <child>wheel3.3_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>-7e-06 -1 4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel3_Link'>
+        <pose frame=''>-0.38871 0.295 -0.19381 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>-0 0 -0.024606 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.00232456</ixx>
+            <ixy>-1.61343e-09</ixy>
+            <ixz>-4.56707e-13</ixz>
+            <iyy>0.00232457</iyy>
+            <iyz>-1.36036e-18</iyz>
+            <izz>0.00308348</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel3_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel3_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel3_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel3_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel3_joint' type='revolute'>
+        <child>wheel3_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>-7e-06 -1 4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel4.1_Link'>
+        <pose frame=''>-0.23111 -0.3495 -0.27671 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>-0 -0 0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000179574</ixx>
+            <ixy>-7.93399e-21</ixy>
+            <ixz>-2.13342e-21</ixz>
+            <iyy>0.000179574</iyy>
+            <iyz>-3.23624e-21</iyz>
+            <izz>0.000332595</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel4.1_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel4.1_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel4.1_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel4.1_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel4.1_joint' type='revolute'>
+        <child>wheel4.1_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>-7e-06 -1 4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel4.2_Link'>
+        <pose frame=''>0.043885 -0.3495 -0.27671 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>-0 -0 0.072 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000179574</ixx>
+            <ixy>6.30058e-22</ixy>
+            <ixz>1.17534e-22</ixz>
+            <iyy>0.000179574</iyy>
+            <iyz>-3.27347e-21</iyz>
+            <izz>0.000332595</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel4.2_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel4.2_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel4.2_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel4.2_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel4.2_joint' type='revolute'>
+        <child>wheel4.2_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>-7e-06 -1 4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel4.3_Link'>
+        <pose frame=''>-0.28597 -0.3495 -0.087 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 -5.3e-05 0.070115 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.000105265</ixx>
+            <ixy>7.98232e-12</ixy>
+            <ixz>6.804e-11</ixz>
+            <iyy>0.000105238</iyy>
+            <iyz>-2.72106e-11</iyz>
+            <izz>0.000173281</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel4.3_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel4.3_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel4.3_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel4.3_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel4.3_joint' type='revolute'>
+        <child>wheel4.3_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>7e-06 1 -4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wheel4_Link'>
+        <pose frame=''>-0.38871 -0.295 -0.19381 1.5708 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 0 0.024593 0 -0 0</pose>
+          <mass>0.0001</mass>
+          <inertia>
+            <ixx>0.00232457</ixx>
+            <ixy>-1.61343e-09</ixy>
+            <ixz>-3.67392e-19</ixz>
+            <iyy>0.00232456</iyy>
+            <iyz>-4.56707e-13</iyz>
+            <izz>0.00308348</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel4_Link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel4_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel4_Link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/wheel4_Link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel4_joint' type='revolute'>
+        <child>wheel4_Link</child>
+        <parent>robot_base</parent>
+        <axis>
+          <xyz>7e-06 1 -4e-06</xyz>
+          <limit>
+            <lower>-180</lower>
+            <upper>180</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <plugin name='object_controller' filename='libgazebo_ros_planar_move.so'>
+        <commandTopic>smoother_cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <odometryRate>20.0</odometryRate>
+        <leftFrontJoint>wheel1_2_joint</leftFrontJoint>
+        <rightFrontJoint>wheel2_2_joint</rightFrontJoint>
+        <leftRearJoint>wheel3_1_joint</leftRearJoint>
+        <rightRearJoint>wheel4_1_joint</rightRearJoint>
+        <robotBaseFrame>robot_base</robotBaseFrame>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        <legacyModeNS>1</legacyModeNS>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='gps_controller' filename='libhector_gazebo_ros_gps.so'>
+        <updateRate>40</updateRate>
+        <frameId>gps_link</frameId>
+        <topicName>ublox_gps/fix</topicName>
+        <velocityTopicName>ublox_gps/vel</velocityTopicName>
+        <referenceLatitude>37.871112</referenceLatitude>
+        <referenceLongitude>127.746019</referenceLongitude>
+        <referenceHeading>0</referenceHeading>
+        <referenceAltitude>0</referenceAltitude>
+        <drift>0.001 0.001 0.001</drift>
+        <robotNamespace>/</robotNamespace>
+        <bodyName>robot_base</bodyName>
+        <xyzOffset>0.25 0 -0.29</xyzOffset>
+        <rpyOffset>0 -0 0</rpyOffset>
+      </plugin>
+      <static>0</static>
+      <plugin name='imu_controller' filename='libhector_gazebo_ros_imu.so'>
+        <robotNamespace>/</robotNamespace>
+        <updateRate>50.0</updateRate>
+        <topicName>imu/data</topicName>
+        <accelDrift>0.005 0.005 0.005</accelDrift>
+        <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
+        <rateDrift>0.005 0.005 0.005</rateDrift>
+        <rateGaussianNoise>0.005 0.005 0.005</rateGaussianNoise>
+        <headingDrift>0.005</headingDrift>
+        <headingGaussianNoise>0.005</headingGaussianNoise>
+        <bodyName>robot_base</bodyName>
+        <xyzOffset>-0.33 0.065 -0.29</xyzOffset>
+        <rpyOffset>0 -0 0</rpyOffset>
+      </plugin>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='ground_plane_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>4.16184 -0.605472 0 0 -0 0</pose>
+    </model>
+    <model name='sand_heightmap'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='ground'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://sand_heightmap/meshes/heightmap.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='ground_sand'>
+          <cast_shadows>1</cast_shadows>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://sand_heightmap/meshes/heightmap.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://Media/materials/scripts/sand.material</uri>
+              <name>UUVSimulator/SandAndStones</name>
+            </script>
+            <emissive>0.6 0.6 0.6 1</emissive>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>131.563 74.9473 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>

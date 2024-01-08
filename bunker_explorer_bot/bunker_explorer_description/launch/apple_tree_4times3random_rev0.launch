@@ -5,8 +5,7 @@
   <!-- <arg name="gui" default="false"/> --> <!-- original-->
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <!-- <arg name="world_name" value="$(find bunker_explorer_description)/world/apple_tree_4times3random.world"/> -->
-    <arg name="world_name" value="$(find bunker_explorer_description)/world/orchard_sand.world"/>
+    <arg name="world_name" value="$(find bunker_explorer_description)/world/apple_tree_4times3random.world"/>
     <arg name="paused" default="false"/>
     <arg name="use_sim_time" default="true"/>
     <!-- <arg name="gui" default="$(arg gui)"/> -->
