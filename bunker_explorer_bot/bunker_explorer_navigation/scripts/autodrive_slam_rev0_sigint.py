@@ -71,18 +71,13 @@ class TerminalLauncher(QtWidgets.QWidget):
 
             #Connect signla for both start and stop buttons
             start_button.clicked.connect(lambda _, idx=index: self.startTerminal(idx, stop_button))
-
             #stop_button Method 1
-            #stop_button.clicked.connect(lambda _, index=len(self.labels)-1, stop_button=stop_button: self.stopTerminal(index, stop_button))
-            stop_button.clicked.connect(lambda _, idx=index, stop_button=stop_button:  self.stopTerminal(idx, stop_button))
+            stop_button.clicked.connect(lambda _, index=len(self.labels)-1, stop_button=stop_button: self.stopTerminal(index, stop_button))
 
             print(f"Stop button for index {index} connected.")
 
             # Add the horizontal layout to the main vertical layout
             layout.addLayout(h_layout)
-
-            # Enable the stop button for the current index
-            stop_button.setEnabled(True)            
 
         self.setFocusPolicy(QtCore.Qt.StrongFocus)
         self.keyPressEvent = self.customKeyPressEvent
@@ -93,16 +88,15 @@ class TerminalLauncher(QtWidgets.QWidget):
             if focused_button in self.start_buttons:
                 index = self.start_buttons.index(focused_button)
                 self.startTerminal(index, self.stop_buttons[index])
-                #print(f"Start button pressed on index:{index}")
             elif focused_button in self.stop_buttons:
                 index = self.stop_buttons.index(focused_button)
                 process = self.process(index)
                 self.stopTerminal(process, self.stop_buttons[index])
-                #print(f"Stop button pressed on index :{index}")
+
+    #def connectStartStopButtons(self, start_button, stop_button):
+        #start_button.clicked.connect(lambda _, stop_button=stop_button: self.startTerminal(stop_button))
 
     def startTerminal(self, index, stop_button):
-        print(f"Start button clicked for index: {index}")
-
         commands = [
             #"source ~/.bashrc",
             "rosrun bunker_bringup bringup_can2usb.bash",
@@ -177,8 +171,7 @@ class TerminalLauncher(QtWidgets.QWidget):
 
                 #method2 based on pid process capturing
                 self.process_dict[index] = pid
-    
-                print("index number:", {index})
+
 
                 stop_button.setEnabled(True)  #Enable the stop button
 
@@ -216,7 +209,7 @@ class TerminalLauncher(QtWidgets.QWidget):
         except Exception as e:
             print(f"Error closing terminal windows: {e}")
         
-        #stop_button.setEnabled(False)  #Disable the stop button
+        stop_button.setEnabled(False)  #Disable the stop button
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
