@@ -1,0 +1,35 @@
+{
+    "ros.distro": "melodic",
+    "python.autoComplete.extraPaths": [
+        "/home/andi/github/depth_to_pcl_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/midrow_detection_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/neo_navigation_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/mbf_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/depth_to_laser_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/gps_umd_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/path_tracking_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/xsense_mti_ros_driver/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/anzulfa_localization_system/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/trajectory_evaluation_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/geonav_transform_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/catkin_redevel_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/catkin_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/andi/github/depth_to_pcl_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/midrow_detection_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/neo_navigation_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/mbf_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/depth_to_laser_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/gps_umd_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/path_tracking_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/xsense_mti_ros_driver/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/anzulfa_localization_system/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/trajectory_evaluation_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/github/geonav_transform_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/catkin_redevel_ws/devel/lib/python2.7/dist-packages",
+        "/home/andi/catkin_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ]
+}

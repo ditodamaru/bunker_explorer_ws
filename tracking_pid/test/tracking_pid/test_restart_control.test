@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    <!--Tracking_pid can be paused and it must be actively unpaused-->
+  <node name="publish_enable" pkg="rostopic" type="rostopic" args="pub --latch /enable_control std_msgs/Bool 'data: true'"/>
+
+</launch>

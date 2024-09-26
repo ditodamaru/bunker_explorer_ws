@@ -1,0 +1,74 @@
+
+  
+<launch>
+<!--
+<arg name="localization" default="false"/> <! for localization
+<arg name="rtabmap_args" default="delete_db_on_start"/>  for mapping 
+-->
+<arg name="database_path" default="~/.ros/rtabmap.db"/>
+
+
+<!-- Choose between mapping and localization-->
+<!--
+<arg name="stereo"                    default="false"/>
+<arg     if="$(arg stereo)" name="depth"  default="false"/>
+<arg unless="$(arg stereo)" name="depth"  default="true"/> 
+-->
+
+<!-- pengaturan default untuk mapping
+<arg name="function" default="true"/> < untuk mapping 
+<arg    if="$(arg function)" name="rtabmap_args" default="-delete_db_on_start"/>
+<arg unless="$(arg function)" name="localization"  default="true"/>
+-->
+
+<!-- pengaturan default untuk mapping -->
+<arg name="localization"            default="false"/>
+<arg name="args"                    default=""/>              <!-- delete_db_on_start, udebug -->
+<arg name="rtabmap_args"            default="$(arg args)"/>   <!-- deprecated, use "args" argument -->
+
+
+<!-- example 
+<arg name="args"                    default=""/>              <- delete_db_on_start, udebug ->
+<arg name="rtabmap_args"            default="$(arg args)"/>   <- deprecated, use "args" argument ->
+<arg name="gdb"                     default="false"/>         <- Launch nodes in gdb for debugging (apt install xterm gdb) ->
+<arg     if="$(arg gdb)" name="launch_prefix" default="xterm -e gdb -q -ex run -args"/>
+<arg unless="$(arg gdb)" name="launch_prefix" default=""/> -->
+
+<node name="localization_data_pub_node" pkg="localization_data_pub" type="rviz_click_to_2d" output="screen">
+        <!-- Add any necessary arguments here -->
+        <!-- <param name="param_name" value="param_value" /> -->
+</node>
+
+<!-- activate this if you D435i depth camera -->
+<!-- <node name="imu_filter_madgwick" pkg="imu_filter_madgwick" type="imu_filter_node" args="_use_mag:=false _publish_tf:=false _world_frame=odom /imu/data_raw:=/camera/imu /imu/data:=/rtabmap/imu"/> --> 
+
+<include file="$(find rtabmap_ros)/launch/rtabmap.launch">
+    <arg name="localization" value="$(arg localization)"/>
+    <arg name="rtabmap_args" value="$(arg rtabmap_args)"/>
+    <!-- <arg name="localization" default="true"/> -->
+
+    <arg name="depth_topic" value="/camera/aligned_depth_to_color/image_raw"/>
+    <arg name="rgb_topic" value="/camera/color/image_raw"/>
+    <arg name="camera_info_topic" value="/camera/color/camera_info"/>
+
+    <arg name="approx_sync" value="true"/>
+    <arg name="frame_id" value="base_footprint"/>
+    <arg name="odom_frame_id"           default="odom"/>                <!-- If set, TF is used to get odometry instead of the topic -->
+    <arg name="map_frame_id"            default="map"/>
+
+    <arg name="rtabmapviz"              default="false" /> 
+    <arg name="rviz"                    default="false" />
+
+    <arg name="visual_odometry"          default="false"/>
+    <!-- <arg name="database_path" value="$(find rtabmap_ros)/maps/rtabmap.db"/> -->
+    <arg name="database_path"           default="$(arg database_path)"/>
+
+    <!-- example from husky-->
+    <arg name="imu_topic"       value="/imu/data" />
+    <!-- <arg unless="$(arg icp_odometry)" name="odom_topic" value="/odometry/filtered" />
+    <arg name="frame_id"        value="base_link" />
+    <arg name="rtabmap_viz"      value="$(arg rtabmap_viz)" />
+    <arg name="gps_topic"       value="/navsat/fix"/> -->
+</include>
+
+</launch>

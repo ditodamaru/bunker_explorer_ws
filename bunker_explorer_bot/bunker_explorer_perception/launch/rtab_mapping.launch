@@ -5,6 +5,17 @@
 <arg name="localization" default="false"/> <! for localization
 <arg name="rtabmap_args" default="delete_db_on_start"/>  for mapping 
 -->
+
+    <!-- references --> 
+    <!-- https://github.com/introlab/rtabmap_ros/blob/master/rtabmap_demos/launch/demo_stereo_outdoor.launch -->
+    <!-- http://wiki.ros.org/rtabmap_ros/Tutorials/StereoHandHeldMapping-->
+    <!-- reference for RGBD-SLAM RTABMAP https://github.com/sunsided/RoboND-MapMyWorld/blob/master/src/map_my_world/launch/mapping.launch-->
+    <!-- reference for http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping -->
+    <!-- https://answers.ros.org/question/413602/error-when-using-external-odometry-for-rtab-map-slam/ -->
+    <!-- https://github.com/introlab/rtabmap_ros/issues/914-->
+
+
+
 <arg name="database_path" default="~/.ros/rtabmap.db"/>
 
 
@@ -52,7 +63,6 @@
     <arg name="rgb_topic" value="/camera/color/image_raw"/>
     <arg name="camera_info_topic" value="/camera/color/camera_info"/>
 
-    <arg name="approx_sync" value="true"/>
     <arg name="frame_id" value="base_footprint"/>
     <arg name="odom_frame_id"           default="odom"/>                <!-- If set, TF is used to get odometry instead of the topic -->
     <arg name="map_frame_id"            default="map"/>
@@ -68,8 +78,15 @@
     <arg name="imu_topic"       value="/rtabmap/imu" />
     <!-- <arg unless="$(arg icp_odometry)" name="odom_topic" value="/odometry/filtered" />
     <arg name="frame_id"        value="base_link" />
-    <arg name="rtabmap_viz"      value="$(arg rtabmap_viz)" />
-    <arg name="gps_topic"       value="/navsat/fix"/> -->
+    <arg name="rtabmap_viz"      value="$(arg rtabmap_viz)" /> -->
+    <arg name="gps_topic"       value="/ublox_gps/fix"/> <!-- original: /ublox_gps/fix-->
+
+    <!-- suggestion setting for external odometry-->
+    <arg name="approx_sync" value="false"/> <!-- cannot use exact sync with external odom -->
+    <arg name="odom_topic" value="odom"/>
+    <!-- <arg name="publish_tf_odom" value="false"/> --> <!-- to avoid conflicts with robot_localization odom tf -->
+    <!--<arg name="subscribe_odom_info" value="false"/> <!- external odom used -->    
+
 </include>
 
 </launch>

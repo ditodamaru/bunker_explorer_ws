@@ -16,6 +16,11 @@ waypoint_dir = os.path.join(package_path, 'waypoint_files')
 # List all files in the waypoint directory
 waypoint_files = os.listdir(waypoint_dir)
 
+#Get the path of tracking_pid ROS package
+tracking_pid_path = rospack.get_path('tracking_pid')
+
+#Contruct the path to "trajectories/waypoint_conv.yaml" 
+
 if not waypoint_files:
     print("No waypoint files found in the directory.")
 else:
@@ -40,7 +45,11 @@ else:
     #output_file = "/home/andi/catkin_redevel_ws/src/tracking_pid/trajectories/waypoint_20230829_1828.yaml"
     #output_file = "/home/$USER/github/bunker_eplorer_ws/src/bunker_explorer_ws/tracking_pid/trajectories/waypoint_conv.yaml"
     #/home/parlab/github/bunker_eplorer_ws/src/bunker_explorer_ws/tracking_pid/trajectories
-    output_file = "/home/parlab/github/bunker_eplorer_ws/src/bunker_explorer_ws/tracking_pid/trajectories/waypoint_conv.yaml"
+    #output_file = "/home/parlab/github/bunker_eplorer_ws/src/bunker_explorer_ws/tracking_pid/trajectories/waypoint_conv.yaml"
+    #output_file = "/home/andi/catkin_redevel_ws/src/tracking_pid/trajectories/waypoint_conv.yaml"
+    
+    #contruct the path to 'trajectories'/waypoint_conv.yaml'
+    output_file = "{}/trajectories/waypoint_conv.yaml".format(tracking_pid_path)
 
     # Define the frame_id without single quotes
     frame_id = 'map'

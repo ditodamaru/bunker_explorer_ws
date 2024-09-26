@@ -53,7 +53,7 @@
     <!-- original code <arg name="rgb_topic" value="/camera/color/image_raw"/> -->
     <arg name="rgb_topic" value="/camera/rgb/image_raw"/>
     <!--original script <arg name="camera_info_topic" value="/camera/color/camera_info"/> -->
-    original script <arg name="camera_info_topic" value="/camera/rgb/camera_info"/>
+    <arg name="camera_info_topic" value="/camera/rgb/camera_info"/>
 
     <arg name="approx_sync" value="true"/>
     <arg name="frame_id" value="robot_base"/> <!-- original robot_base-->

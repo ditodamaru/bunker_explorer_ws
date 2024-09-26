@@ -184,7 +184,7 @@
       <origin rpy="0 0. 0" xyz="0 0 0"/>
       <material name="blue"/>
     </visual>
-  </link> --> 
+  </link> <!-- --> 
     
     <!-- added new joint-->
  <!--<joint name="base_to_Servo_B2" type="fixed">

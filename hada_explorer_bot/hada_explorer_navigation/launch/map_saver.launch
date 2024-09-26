@@ -1,4 +1,0 @@
-<launch>
-    <node args="-f $(find bunker_explorer_navigation)/maps/trial" name="map_saver_node" output="screen" pkg="map_server" type="map_saver" />
-</launch>
-
