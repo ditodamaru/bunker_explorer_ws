@@ -847,7 +847,8 @@
           <geometry>
             <mesh>
               <scale>0.001 0.001 0.001</scale>
-              <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/BUNKER.STL</uri>
+              <!-- <uri>/home/andi/catkin_redevel_ws/src/ugv_gazebo_sim/bunker/bunker_description/meshes/BUNKER.STL</uri> -->
+              <uri>package://bunker_description/meshes/BUNKER.STL</uri>
             </mesh>
           </geometry>
           <surface>
