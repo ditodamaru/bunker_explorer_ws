@@ -175,6 +175,20 @@
   <arg if="$(arg rgbd_sync)"      name="rgbd_topic_relay"          default="$(arg rgbd_topic)"/>
   <arg unless="$(arg rgbd_sync)"  name="rgbd_topic_relay"          default="$(arg rgbd_topic)_relay"/>
 
+  <!-- Visualization for rviz-->
+  <arg name="visualize" default="true" />
+  <arg name="rvizconfig" default="$(find bunker_explorer_description)/rviz/bunker_mapping.rviz" />
+
+  <!-- Localization data publisher -->
+  <node name="localization_data_pub_node" pkg="localization_data_pub" type="rviz_click_to_2d" output="screen">
+          <!-- Add any necessary arguments here -->
+          <!-- <param name="param_name" value="param_value" /> -->
+  </node>
+  
+  <group if="$(arg visualize)">
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  </group>
+
   <!-- Nodes -->
   <group ns="$(arg namespace)">
 
