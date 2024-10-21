@@ -22,7 +22,10 @@
   <arg name="subscribe_rgb"  default="$(arg depth)"/>
 
   <!-- Choose visualization -->
-  <arg name="rtabmap_viz"             default="true" />
+  <!-- old rtabmap-->
+  <!-- <arg name="rtabmap_viz"             default="true" /> -->
+  <!-- latest rtabmap -->
+  <arg name="rtabmapviz"            default="true" />
   <arg name="rviz"                    default="false" />
 
   <!-- Localization-only mode -->
@@ -358,7 +361,10 @@
 
     <!-- Visual SLAM (robot side) -->
     <!-- args: "delete_db_on_start" and "udebug" -->
-    <node name="rtabmap" pkg="rtabmap_slam" type="rtabmap" clear_params="$(arg clear_params)" output="$(arg output)" args="$(arg rtabmap_args)" launch-prefix="$(arg launch_prefix)">
+    <!-- old rtabmap -->
+    <!-- <node name="rtabmap" pkg="rtabmap_slam" type="rtabmap" clear_params="$(arg clear_params)" output="$(arg output)" args="$(arg rtabmap_args)" launch-prefix="$(arg launch_prefix)"> -->
+    <!-- latest rtabmap -->
+    <node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" clear_params="$(arg clear_params)" output="$(arg output)" args="$(arg rtabmap_args)" launch-prefix="$(arg launch_prefix)">  
       <param     if="$(arg stereo)" name="subscribe_depth"  type="bool" value="false"/>
       <param unless="$(arg stereo)" name="subscribe_depth"  type="bool" value="$(arg depth)"/>
       <param name="subscribe_rgb"        type="bool"   value="$(arg subscribe_rgb)"/>
@@ -429,7 +435,10 @@
     </node>
 
     <!-- Visualisation RTAB-Map -->
-    <node if="$(arg rtabmap_viz)" pkg="rtabmap_viz" type="rtabmap_viz" name="rtabmap_viz" args="-d $(arg gui_cfg)" clear_params="$(arg clear_params)" output="$(arg output)" launch-prefix="$(arg launch_prefix)">
+    <!-- old rtabmap -->
+    <!-- <node if="$(arg rtabmap_viz)" pkg="rtabmap_viz" type="rtabmap_viz" name="rtabmap_viz" args="-d $(arg gui_cfg)" clear_params="$(arg clear_params)" output="$(arg output)" launch-prefix="$(arg launch_prefix)"> -->
+    <!-- latest rtabmap -->
+    <node if="$(arg rtabmap_viz)" pkg="rtabmap" type="rtabmap" name="rtabmap_viz" args="--viz $(arg gui_cfg)" clear_params="$(arg clear_params)" output="$(arg output)" launch-prefix="$(arg launch_prefix)">
       <param     if="$(arg stereo)" name="subscribe_depth"  type="bool" value="false"/>
       <param unless="$(arg stereo)" name="subscribe_depth"  type="bool" value="$(arg depth)"/>
       <param name="subscribe_rgb"        type="bool"   value="$(arg subscribe_rgb)"/>
